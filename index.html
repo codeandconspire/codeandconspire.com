@@ -3,28 +3,40 @@
 <title>code&conspire</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="normalize.css">
-<meta name="theme-color" content="#f2f2f2" />
+<meta name="theme-color" content="#000" />
 
 <style>
-  html {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #111;
-    background: #f2f2f2;
+html {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #fff;
+    background: #000000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 75vh;
+  .container {
+    position: absolute;
+    bottom: 6vw;
+    left: 6vw;
     cursor: default;
+  }
+
+  @media (min-width: 375px) {
+    .container {
+      bottom: 7vw;
+      left: 7vw;
+      font-size: 22px;
+    }
+  }
+
+  @media (min-width: 420px) {
+    .container {
+      font-size: 24px;
+    }
   }
 
   h1, p, a {
@@ -45,8 +57,8 @@
   }
 
   a:hover {
-    background: #111;
-    color: #f2f2f2;
+    background: #fff;
+    color: #000;
   }
 </style>
 
