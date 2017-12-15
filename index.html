@@ -1,69 +1,100 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>code&conspire</title>
+<title>code&amp;conspire – digital creatives</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="normalize.css">
 <meta name="theme-color" content="#000" />
 
 <style>
-html {
-    font-size: 20px;
-    line-height: 1.5;
-    font-weight: 300;
-    color: #fff;
-    background: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  html {
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #000;
+    background: #fff;
+    height: 100%;
+    font-family: 'Helvetica Neue 65 Medium', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .container {
-    position: absolute;
-    bottom: 6vw;
-    left: 6vw;
+    letter-spacing: -0.3px;
     cursor: default;
+    overflow-x: hidden;
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
   }
 
-  @media (min-width: 375px) {
-    .container {
-      bottom: 7vw;
-      left: 7vw;
-      font-size: 22px;
-    }
+  body {
+    min-height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 10vw 5vw 10vw 10vw;
+    margin: 0;
   }
 
-  @media (min-width: 420px) {
-    .container {
-      font-size: 24px;
-    }
-  }
-
-  h1, p, a {
+  h1, h2, p, a {
     font: inherit;
     margin: 0;
     color: inherit;
     text-decoration: none;
-    padding: 1px;
   }
 
   p {
-    margin: 3px 0;
+    margin: 0.95em 0;
+  }
+
+  span {
+    font-size: 0.95em;
   }
 
   a {
-    padding: 2px 3px;
-    margin: -1px -2px;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 2;
   }
 
   a:hover {
-    background: #fff;
-    color: #000;
+    border-bottom: 2px solid black;
+    background-color: transparent;
   }
 </style>
 
 <div class="container">
-  <h1>code&conspire</h1>
-  <p>nybrogatan 8, 114 34 stockholm</p>
-  <p><a ontouchstart href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a></p>
+  <h1>code&amp;conspire</h1>
+  <p>
+    <a href="https://www.google.se/maps/place/Alma/@59.3215566,18.0169478,13z/data=!4m8!1m2!2m1!1salma!3m4!1s0x465f9d5b00af1afd:0x44480b8d5d69a7c7!8m2!3d59.334149!4d18.077116?dcr=0">nybrogatan <span>8</span>, <span>114 34</span>, stockholm</a>
+    <br>
+    <a href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
+    <br>
+    <a href="tel:+46735819750">+<span>46 735 819 750</span></a>
+  </p>
+
+  <h2>digital creatives</h2>
+
+  <p>
+    anton trollbäck – <a href="https://www.linkedin.com/in/antontrollback/">linkedin</a>, <a href="mailto:anton@codeandconspire.com">email</a>
+    <br>
+    carl törnqvist – <a href="https://github.com/tornqvist">github</a>, <a href="mailto:carl@codeandconspire.com">email</a>
+    <br>
+    karl sandgren – <a href="https://www.linkedin.com/in/karlsandgren/">linkedin</a>
+    <br>
+    jakob trollbäck – <a href="https://www.instagram.com/projektor/">instagram</a>
+  </p>
+
+  <h2>friends</h2>
+
+  <p>
+    <a href="https://www.thenewdivision.world/">the new division</a>
+    <br>
+    <a href="http://commonground.se/">common ground</a>
+    <br>
+    <a href="http://trollback.com/">trollbäck+company</a>
+    <br>
+    <a href="http://www.madder.se/">madder</a>
+  </p>
 </div>
