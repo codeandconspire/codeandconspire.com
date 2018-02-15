@@ -1,0 +1,209 @@
+html {
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  height: 100%;
+  font-family: 'Helvetica Neue 65 Medium', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.3px;
+  cursor: default;
+  overflow-x: hidden;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-end;
+  min-height: 100%;
+  padding: 0 1.1em;
+  margin: 0;
+}
+/*
+@media (min-width: 1024px) {
+  html {
+    font-size: 19px;
+  }
+} */
+
+h1,
+h2,
+p,
+a {
+  max-width: 30em;
+  margin: 0;
+  font: inherit;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+}
+
+p + p,
+h2 + p {
+  margin-top: 1em;
+}
+
+a {
+  padding: 0 2px;
+  margin: 0 -2px;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+a:hover {
+  background: #000;
+  color: #fff;
+  border: 0;
+}
+
+.em {
+  border-bottom: 1px dotted;
+  background-color: transparent;
+}
+
+.sm {
+  font-size: 0.95em;
+}
+
+.nw {
+  white-space: nowrap;
+}
+
+/**
+ * The Grid
+ */
+
+.cell {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: start;
+  flex: 0 0 100%;
+  padding: 1em 0;
+  border-top: 1px solid;
+}
+
+.outer:first-child {
+  border: 0;
+  height: 35vh;
+}
+
+.outer:nth-child(2) {
+  flex-wrap: nowrap;
+}
+
+h1 {
+  position: absolute;
+  top: 1em;
+  left: 1.1em;
+}
+
+.wrap {
+  padding: 0;
+  border: 0;
+  flex-direction: row;
+  align-content: flex-end;
+}
+
+.inner {
+  flex-basis: 100%;
+  flex-wrap: initial;
+}
+
+@media (min-height: 600px) {
+  .outer:first-child {
+    height: 20vh;
+  }
+}
+
+@media (min-width: 430px) {
+  .inner {
+    flex: 1 0 50%;
+  }
+
+  .inner:nth-child(even) {
+    flex-basis: 30%;
+  }
+}
+
+@media (min-width: 640px) {
+  .inner:nth-child(even) {
+    flex-basis: 40%;
+  }
+}
+
+@media (min-width: 820px) {
+  .inner:nth-child(even),
+  .inner:nth-child(odd) {
+    flex: 1 0 auto;
+    min-width: 110px;
+  }
+}
+
+@media (min-width: 900px) {
+  .inner:nth-child(even),
+  .inner:nth-child(odd) {
+    min-width: 160px;
+  }
+}
+
+@media (min-width: 960px) {
+  body {
+    flex-direction: row;
+  }
+
+  .outer:nth-child(2) {
+    flex-basis: 50%;
+    padding-right: 1em;
+  }
+  .wrap {
+    flex-basis: 50%;
+    padding-left: 1em;
+    border-top: 1px solid;
+  }
+  .inner:nth-child(even) {
+    flex-basis: 30%;
+  }
+
+  .inner:first-child,
+  .inner:nth-child(2) {
+    border-top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .inner:nth-child(even),
+  .inner:nth-child(odd) {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-height: 600px) and (min-width: 820px) {
+  body {
+    align-content: space-evenly;
+  }
+
+  .outer:first-child {
+    height: auto;
+  }
+}
+
+
+@media (min-height: 560px) and (min-width: 960px) {
+  .outer:first-child,
+  .inner {
+    height: calc(100vh / 3);
+  }
+
+  .outer:nth-child(2),
+  .wrap {
+    height: calc((100vh / 3) * 2);
+  }
+}

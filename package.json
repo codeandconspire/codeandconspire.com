@@ -1,0 +1,37 @@
+{
+  "name": "codeandconspire.com",
+  "version": "1.0.0",
+  "description": "code and conspire website",
+  "main": "echo \"Error: no main specified\" && exit 1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve",
+    "build": "npm run build:css && npm run build:html",
+    "build:html": "html-inline -b dist -i index.html -o dist/index.html",
+    "build:css": "postcss index.css -o dist/index.css",
+    "postbuild": "rimraf dist/index.css && npm run minify && npm run compress",
+    "minify": "html-minifier dist/index.html -c minify.json -o dist/index.html",
+    "compress": "gzip -9 -f -c dist/index.html > dist/index.html.gz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeandconspire/codeandconspire.com.git"
+  },
+  "author": "code and conspire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeandconspire/codeandconspire.com/issues"
+  },
+  "homepage": "https://github.com/codeandconspire/codeandconspire.com#readme",
+  "dependencies": {
+    "autoprefixer": "^8.0.0",
+    "html-inline": "^1.2.0",
+    "html-minifier": "^3.5.9",
+    "normalize.css": "^8.0.0",
+    "postcss": "^6.0.17",
+    "postcss-flexbugs-fixes": "^3.3.0",
+    "postcss-import": "^11.1.0",
+    "rimraf": "^2.6.2",
+    "serve": "^6.4.9"
+  }
+}
