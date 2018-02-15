@@ -22,15 +22,15 @@ body {
   flex-direction: row;
   align-content: flex-end;
   min-height: 100%;
-  padding: 0 1.1em;
+  padding: 0 1.1em 3em;
   margin: 0;
 }
-/*
-@media (min-width: 1024px) {
+
+@media (min-width: 1400px) and (min-height: 730px) {
   html {
     font-size: 19px;
   }
-} */
+}
 
 h1,
 h2,
@@ -93,6 +93,7 @@ a:hover {
 .outer:first-child {
   border: 0;
   height: 35vh;
+  position: relative;
 }
 
 .outer:nth-child(2) {
@@ -101,6 +102,7 @@ a:hover {
 
 h1 {
   position: absolute;
+  position: sticky;
   top: 1em;
   left: 1.1em;
 }
@@ -188,10 +190,16 @@ h1 {
 @media (min-height: 600px) and (min-width: 820px) {
   body {
     align-content: space-evenly;
+    padding-bottom: 0;
   }
 
   .outer:first-child {
     height: auto;
+    position: static;
+  }
+
+  h1 {
+    position: absolute;
   }
 }
 
