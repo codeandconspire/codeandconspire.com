@@ -203,6 +203,16 @@ h1 {
   }
 }
 
+@media (min-height: 600px) and (min-width: 430px) {
+  .outer:first-child {
+    position: static;
+  }
+
+  h1 {
+    position: absolute;
+  }
+}
+
 
 @media (min-height: 560px) and (min-width: 960px) {
   .outer:first-child,
