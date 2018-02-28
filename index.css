@@ -5,7 +5,7 @@ html {
   color: #000;
   background: #fff;
   height: 100%;
-  font-family: 'Helvetica Neue 65 Medium', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Helvetica Neue 65 Medium', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.3px;
@@ -13,6 +13,10 @@ html {
   overflow-x: hidden;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+  background: yellow;
 }
 
 body {
@@ -29,6 +33,12 @@ body {
 @media (min-width: 1400px) and (min-height: 730px) {
   html {
     font-size: 19px;
+  }
+}
+
+@media (min-width: 1800px) and (min-height: 1000px) {
+  html {
+    font-size: 22px;
   }
 }
 
