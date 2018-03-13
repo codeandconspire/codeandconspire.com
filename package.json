@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "serve",
     "build": "npm run build:css && npm run build:html",
-    "build:html": "html-inline -b dist -i index.html -o dist/index.html",
+    "build:html": "html-inline --ignore-images -b dist -i index.html -o dist/index.html",
     "build:css": "postcss index.css -o dist/index.css",
-    "postbuild": "rimraf dist/index.css && npm run minify && npm run compress",
+    "postbuild": "cpx dbg-nyc-flowers.jpg dist && rimraf dist/index.css && npm run minify && npm run compress",
     "minify": "html-minifier dist/index.html -c minify.json -o dist/index.html",
     "compress": "gzip -9 -f -c dist/index.html > dist/index.html.gz"
   },
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/codeandconspire/codeandconspire.com#readme",
   "dependencies": {
     "autoprefixer": "^8.0.0",
+    "cpx": "^1.5.0",
     "html-inline": "^1.2.0",
     "html-minifier": "^3.5.9",
     "normalize.css": "^8.0.0",
