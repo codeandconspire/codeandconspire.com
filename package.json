@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "serve",
     "build": "npm run build:css && npm run build:html",
-    "build:html": "html-inline --ignore-images --ignore-scripts -b dist -i index.html -o dist/index.html",
-    "build:css": "postcss index.css -o dist/index.css",
-    "postbuild": "cpx dbg-nyc-flowers.jpg dist && rimraf dist/index.css && npm run minify && npm run compress",
-    "minify": "html-minifier dist/index.html -c minify.json -o dist/index.html",
-    "compress": "gzip -9 -f -c dist/index.html > dist/index.html.gz"
+    "build:html": "html-inline --ignore-images --ignore-scripts -b codeandconspire -i index.html -o codeandconspire/index.html",
+    "build:css": "postcss index.css -o codeandconspire/index.css",
+    "postbuild": "cpx dbg-nyc-flowers.jpg codeandconspire && rimraf codeandconspire/index.css && npm run minify && npm run compress",
+    "minify": "html-minifier codeandconspire/index.html -c minify.json -o codeandconspire/index.html",
+    "compress": "gzip -9 -f -c codeandconspire/index.html > codeandconspire/index.html.gz"
   },
   "repository": {
     "type": "git",
