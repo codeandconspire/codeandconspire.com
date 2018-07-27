@@ -1,0 +1,31 @@
+@import "normalize.css";
+@import "./global";
+
+:root {
+  background-color: var(--background);
+  font-family: var(--system-font);
+  line-height: var(--system-font-line-height);
+  letter-spacing: var(--system-font-letter-spacing);
+  font-size: var(--font-size-md);
+  color: var(--color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-color);
+}
+
+html {
+  min-height: 100%;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}

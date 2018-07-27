@@ -1,38 +1,54 @@
 {
   "name": "codeandconspire.com",
-  "version": "1.0.0",
-  "description": "code and conspire website",
-  "main": "echo \"Error: no main specified\" && exit 1",
+  "version": "2.0.0",
+  "description": "Website for code and conspire",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve",
-    "build": "npm run build:css && npm run build:html",
-    "build:html": "html-inline --ignore-images --ignore-scripts -b codeandconspire -i index.html -o codeandconspire/index.html",
-    "build:css": "postcss index.css -o codeandconspire/index.css",
-    "postbuild": "cpx dbg-nyc-flowers.jpg codeandconspire && rimraf codeandconspire/index.css && npm run minify && npm run compress",
-    "minify": "html-minifier codeandconspire/index.html -c minify.json -o codeandconspire/index.html",
-    "compress": "gzip -9 -f -c codeandconspire/index.html > codeandconspire/index.html.gz"
+    "test": "standard && dependency-check package.json",
+    "start": "node server.js"
+  },
+  "documentify": {
+    "transform": [
+      [
+        "./lib/document.js",
+        {
+          "order": "end"
+        }
+      ]
+    ]
+  },
+  "now": {
+    "env": {
+      "NODE_ENV": "production",
+      "CLOUDFLARE_CODEANDCONSPIRE_ZONE": "@cloudflare-codeandconspire-zone",
+      "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
+      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codeandconspire/codeandconspire.com.git"
   },
   "author": "code and conspire",
-  "license": "MIT",
+  "license": "CC-BY",
   "bugs": {
     "url": "https://github.com/codeandconspire/codeandconspire.com/issues"
   },
   "homepage": "https://github.com/codeandconspire/codeandconspire.com#readme",
   "dependencies": {
-    "autoprefixer": "^8.0.0",
-    "cpx": "^1.5.0",
-    "html-inline": "^1.2.0",
-    "html-minifier": "^3.5.9",
-    "normalize.css": "^8.0.0",
-    "postcss": "^6.0.17",
-    "postcss-flexbugs-fixes": "^3.3.0",
-    "postcss-import": "^11.1.0",
-    "rimraf": "^2.6.2",
-    "serve": "^6.4.9"
+    "choo": "^6.13.0",
+    "dedent": "^0.7.0",
+    "dotenv": "^6.0.0",
+    "hstream": "^1.2.0",
+    "jalla": "^0.3.5",
+    "koa-route": "^3.2.0",
+    "nanolru": "^1.0.0",
+    "normalize.css": "^8.0.0"
+  },
+  "devDependencies": {
+    "choo-devtools": "^2.5.1",
+    "choo-service-worker": "^2.4.0",
+    "dependency-check": "^3.2.0",
+    "standard": "^11.0.1"
   }
 }
