@@ -24,7 +24,7 @@ function createView (view, meta) {
       emit('meta', {
         description: '',
         'og:image': '/share.png',
-        title: `${text`Oops`} | ${DEFAULT_TITLE}`
+        title: `${text`Error`} | ${DEFAULT_TITLE}`
       })
     }
 
