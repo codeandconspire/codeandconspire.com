@@ -1,0 +1,40 @@
+/* @define Poster */
+
+@import "../base/global";
+@import "../display";
+
+.Poster {
+  position: relative;
+  z-index: 2;
+  background: #6E2469;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  flex: 0 0 100%;
+}
+
+.Poster-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Poster-body {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.Poster-label {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 1.2rem;
+}
+
+.Poster-text {
+  opacity: 0.8;
+  max-width: 28rem;
+}

@@ -1,86 +1,183 @@
 /* @define View */
 
 @import "../base/global";
+@import "../display";
 
 .View {
+  --View-space: 1.3rem;
+
+  --View-main-width: calc(80vw - var(--View-space));
+  --View-main-max-width: 21rem;
   
+  --View-poster-gutter: 1.3rem;
+  --View-poster-width: calc(95vw - var(--View-space));
+  --View-poster-offset: var(--View-poster-width);
+  --View-poster-max-height: 55rem;
 }
 
 .View-container {
-  overflow: scroll;
-  height: 100vh;
-  -webkit-overflow-scrolling: touch;
-}
-
-.View-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 50%;
-  background: #54585e;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.View-main {
-  width: 50%;
-  margin-left: auto;
-}
-
-.View-meta {
-  display: flex;
-  flex: 0 0 auto;
-  justify-content: space-between;
-}
-
-.View-meta > :last-child {
-  margin-left: 1rem;
-  text-align: right;
-}
-
-.View-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-}
-
-.View-nav {
-  display: flex;
-  justify-content: space-between;
-  flex: 1 1 auto;
-}
-
-.View-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex: 1 1 auto;
-  margin: 4rem 1.75rem;
-  list-style: none;
-}
-
-.View-item {
-  margin: 1.5rem 0;
+  height: 100%;
+  width: 100%;
   position: relative;
 }
 
-.View-link {
-  display: block;
-  line-height: 4.2rem;
-  font-size: 4.5rem;
-  font-weight: 500;
-  color: #fff;
+.View-main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* z-index: 1; */
+  height: 100%;
+  width: var(--View-main-width);
+  max-height: var(--View-poster-max-height);
+  max-width: var(--View-main-max-width);
+  display: flex;
+  flex-direction: column;
+  padding: var(--View-space);
+  padding-right: calc(var(--View-space) - var(--View-poster-gutter));
 }
 
-/* .View-link:hover::after {
-  content: "→"
-} */
+.View-scroll {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -webkit-scroll-snap-type: mandatory;
+  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-points-x: repeat(100%);
+  scroll-snap-points-x: repeat(100%);
+}
 
-.View-sub {
-  font-size: 1rem;
-  font-weight: normal;
-  margin-left: 0.2rem;
+.View-poster {
+  display: flex;
+  flex: 0 0 var(--View-poster-width);
+  height: 100%;
+  max-height: var(--View-poster-max-height);
+  color: #fff;
+  padding: var(--View-space) var(--View-poster-gutter);
+  padding-right: 0;
+  scroll-snap-align: start;
+}
+
+.View-poster--empty {
+  flex-basis: var(--View-main-width);
+  max-width: var(--View-main-max-width);
+}
+
+.View-poster:last-child {
+  padding-right: var(--View-poster-gutter);
+}
+
+.View-logo {
+  height: auto;
+  width: 6.7rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: none;
+  margin-bottom: 2rem;
+}
+
+.View-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  max-width: 28rem;
+}
+
+.View-footer {
+  display: none;
+  flex-grow: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 27rem;
+}
+
+.View-footer p {
+  margin-bottom: 0;
+}
+
+.View-social {
+  display: none;
+}
+
+@media (min-width: 400px) and (min-height: 400px) {
+  .View {
+    --View-space: 2rem;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+  .View {
+    --View-space: 2rem; 
+  }
+}
+
+@media (min-height: 500px) {
+  .View-logo {
+    display: block;
+  }
+}
+
+@media (min-height: 700px) {
+  .View-main,
+  .View-poster {
+    border: solid transparent;
+    border-width: 3rem 0;
+  }
+}
+
+@media (min-height: 1100px) {
+  .View {
+    --View-poster-max-height: 65rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .View {
+    --View-poster-width: calc(51vw - var(--View-space));
+  }
+}
+
+@media (min-width: 900px) and (min-height: 700px) {
+  .View {
+    --View-space: 3rem; 
+    --View-poster-gutter: 2rem;
+    --View-main-max-width: 30rem;
+    --View-poster-width: calc(49vw - var(--View-space));
+  }
+
+  .View-logo {
+    width: 8rem;
+  }
+
+  .View-social {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .View {
+    --View-poster-width: calc(44vw - var(--View-space));
+  }
+}
+
+@media (min-width: 1400px) {
+  .View {
+    --View-poster-width: calc(32vw - var(--View-space));
+    --View-main-max-width: 35rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .View {
+    --View-poster-width: calc(25vw - var(--View-space));
+  }
 }

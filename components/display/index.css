@@ -1,0 +1,49 @@
+/* @define Display */
+
+@import "../base/global";
+
+.Display {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: none;
+}
+
+@media (min-width: 300px) {
+  .Display {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 370px) {
+  .Display {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-height: 400px) {
+  .Display {
+    display: block;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+  .Display {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 900px) and (min-height: 700px) {
+  .Display {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1400px) and (min-height: 900px) {
+  .Display {
+    font-size: 3.2rem;
+  }
+}

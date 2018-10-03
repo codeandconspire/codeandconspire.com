@@ -2,15 +2,46 @@
 @import "./global";
 @import "./utilities";
 
+/**
+ * Font declaration
+ */
+
+ @font-face {
+  font-family: "GTE";
+  font-style: normal;
+  font-weight: normal;
+  font-display: block;
+  src: url("./fonts/gte-regular.woff") format("woff");
+}
+
+@font-face {
+ font-family: "GTE";
+ font-style: normal;
+ font-weight: bold;
+ font-display: block;
+ src: url("./fonts/gte-bold.woff") format("woff");
+}
+
+/**
+ * Base styles
+ */
+
 :root {
   background-color: var(--background);
   font-family: var(--font);
   line-height: var(--font-line-height);
   letter-spacing: var(--font-letter-spacing);
-  font-size: var(--font-size-md);
+  font-size: 15px;
   color: var(--color);
+  cursor: default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 330px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 :root,
@@ -21,10 +52,6 @@ body {
 
 ::selection {
   background: var(--selection-color);
-}
-
-html {
-  min-height: 100%;
 }
 
 *,
@@ -45,13 +72,13 @@ ul,
 ol,
 p {
   padding: 0;
-  margin: 1.75rem;
+  margin: 0;
   font: inherit;
   line-height: inherit;
 }
 
-ul {
-  list-style-type: square;
+p {
+  margin: 0.5rem 0;
 }
 
 img {

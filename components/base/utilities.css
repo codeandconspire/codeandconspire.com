@@ -2,19 +2,19 @@
 
 @import "./global";
 
-/**
- * Hide and pull out of flow
- */
+.u-nowrap {
+  white-space: nowrap;
+}
 
 .u-hidden {
-  display: none;
+  display: none !important;
 }
 
 /**
- * Hidden visually
+ * Hidden visually but available for screen readers
  */
 
-.u-hv {
+.u-hiddenVisually {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   height: 1px !important;
