@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && dependency-check package.json",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "npx now -T codeandconspire && npx now alias -T codeandconspire"
   },
   "documentify": {
     "transform": [
@@ -18,6 +19,7 @@
     ]
   },
   "now": {
+    "alias": "www.codeandconspire.com",
     "env": {
       "NODE_ENV": "production",
       "CLOUDFLARE_CODEANDCONSPIRE_ZONE": "@cloudflare-codeandconspire-zone",
@@ -37,17 +39,17 @@
   "homepage": "https://github.com/codeandconspire/codeandconspire.com#readme",
   "dependencies": {
     "choo": "^6.13.0",
+    "choo-service-worker": "^2.4.0",
     "dedent": "^0.7.0",
     "dotenv": "^6.0.0",
     "hstream": "^1.2.0",
-    "jalla": "^0.7.4",
+    "jalla": "^0.8.0",
     "koa-route": "^3.2.0",
     "nanolru": "^1.0.0",
     "normalize.css": "^8.0.0"
   },
   "devDependencies": {
     "choo-devtools": "^2.5.1",
-    "choo-service-worker": "^2.4.0",
     "dependency-check": "^3.2.1",
     "standard": "^11.0.1"
   }

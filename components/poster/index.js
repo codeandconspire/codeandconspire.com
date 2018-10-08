@@ -2,12 +2,18 @@ var html = require('choo/html')
 
 module.exports = Poster
 
-function Poster (opts) {
+function Poster (props) {
   return html`
-    <section class="Poster" id="poster-${opts.key}">
-      <strong class="Poster-label">${opts.label}</strong>
-      <h1 class="Display">${opts.title}</h1>
-      <p class="Poster-text">${opts.text}</p>
+    <section class="Poster ${props.light ? 'Poster--light' : ''}" id="poster-${props.key}">
+      ${props.img ? html`
+        <img class="Poster-bg" src="https://res.cloudinary.com/demo/image/fetch/c_scale,h_1342,q_auto/https://www.codeandconspire.com/${props.img.src}" alt="${props.img.alt}">
+      ` : null} 
+      <div class="Poster-body">
+        <strong class="Poster-label">${props.label}</strong>
+        <h1 class="Display Display--keep">${props.title}</h1>
+        <p class="Poster-text">${props.text}</p>
+        <a class="Poster-link" target="_blank" rel="noopener noreferrer" href="${props.link.href}">${props.link.text}</p>
+      </div>
     </section>
   `
 }

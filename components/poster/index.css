@@ -4,37 +4,86 @@
 @import "../display";
 
 .Poster {
+  --Poster-space: 1.3rem;
+  flex: 0 0 100%;
+  flex-direction: column;
+  display: flex;
+  padding: var(--Poster-space);
   position: relative;
   z-index: 2;
-  background: #6E2469;
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  flex: 0 0 100%;
+  background: #000;
+  color: #fff;
+}
+
+.Poster--light {
+  color: #000;
 }
 
 .Poster-bg {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  z-index: -1;
   object-fit: cover;
-}
-
-.Poster-body {
-  position: absolute;
-  top: 30%;
-  left: 10%;
+  /* opacity: 0.8; */
 }
 
 .Poster-label {
+  display: none;
   font-size: 1rem;
   font-weight: normal;
   margin-bottom: 1.2rem;
 }
 
 .Poster-text {
-  opacity: 0.8;
   max-width: 28rem;
+  opacity: 0.9;
+  margin-top: 0;
+}
+
+.Poster-link {
+  display: inline-block;
+  padding: 0 0.2em;
+  margin: 1rem -0.15em 0;
+  text-decoration: underline;
+}
+
+.Poster-link:hover,
+.Poster-link:focus {
+
+}
+
+.Poster-link::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 400px) and (min-height: 400px) {
+  .Poster {
+    --Poster-space: 2rem;
+  }
+}
+
+@media (min-height: 500px) {
+  .Poster-label {
+    display: block;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+  .Poster {
+    --Poster-space: 2rem; 
+  }
+}
+
+@media (min-width: 900px) and (min-height: 700px) {
+  .Poster {
+    --Poster-space: 3rem; 
+  }
 }
