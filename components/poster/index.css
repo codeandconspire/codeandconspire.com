@@ -4,15 +4,21 @@
 @import "../display";
 
 .Poster {
-  --Poster-space: 1.3rem;
+  --Poster-space: 1.8rem;
   flex: 0 0 100%;
   flex-direction: column;
   display: flex;
-  padding: var(--Poster-space);
   position: relative;
   z-index: 2;
   background: #000;
   color: #fff;
+  overflow: hidden;
+}
+
+.Poster-body {
+  padding: var(--Poster-space);
+  position: relative;
+  z-index: 1;
 }
 
 .Poster--light {
@@ -21,13 +27,8 @@
 
 .Poster-bg {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  object-fit: cover;
-  /* opacity: 0.8; */
+  height: auto;
+  display: none !important;
 }
 
 .Poster-label {
@@ -39,14 +40,14 @@
 
 .Poster-text {
   max-width: 28rem;
-  opacity: 0.9;
+  opacity: 0.85;
   margin-top: 0;
 }
 
 .Poster-link {
   display: inline-block;
   padding: 0 0.2em;
-  margin: 1rem -0.15em 0;
+  margin: 0.3rem -0.15em 0;
   text-decoration: underline;
 }
 
@@ -80,10 +81,50 @@
   .Poster {
     --Poster-space: 2rem; 
   }
+
+  .Poster-link {
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: 900px) and (min-height: 700px) {
   .Poster {
+    --Poster-space: 2.5rem; 
+  }
+}
+
+
+@media (min-width: 1500px) and (min-height: 900px) {
+  .Poster {
     --Poster-space: 3rem; 
   }
+} 
+
+/**
+ * Themes
+ */
+
+.Poster--gg {
+ background: #005190;
+}
+
+.Poster--gg .Poster-bg {
+  width: 110%;
+}
+
+.Poster--lmn {
+  background: #ce8c57;
+}
+
+.Poster--unfluencer {
+  background: #ffed00;
+}
+
+.Poster--planet15 {
+  background: #276ab5;
+}
+
+.Poster--goalkeepers {
+  background-color: #004661;
+  background-image: linear-gradient(to bottom, #001d3a, #004661);
 }

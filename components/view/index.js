@@ -4,7 +4,7 @@ var {i18n} = require('../base')
 
 var text = i18n(require('../base/text.json'))
 
-var DEFAULT_TITLE = text`SITE_TITLE`
+var DEFAULT_TITLE = text`code and conspire`
 
 module.exports = createView
 

@@ -1,0 +1,71 @@
+/* @define View */
+
+@import "../base/global";
+@import "../display";
+@import "../view";
+
+.Intro {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+}
+
+.Intro-link {
+  padding: 0 0.15em;
+  margin: 0 -0.15em;
+  white-space: nowrap;
+}
+
+.Intro-link:hover,
+.Intro-link:focus {
+  text-decoration: underline;
+}
+
+.Intro-logo {
+  height: auto;
+  width: 6.7rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: none;
+  margin-bottom: 2rem;
+}
+
+.Intro-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  max-width: 28rem;
+}
+
+.Intro-footer {
+  display: none;
+  flex-grow: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 27rem;
+}
+
+.Intro-footer p {
+  margin-bottom: 0;
+}
+
+.Intro-social {
+  display: none;
+}
+
+@media (min-height: 500px) {
+  .Intro-logo {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) and (min-height: 700px) {
+  .Intro-logo {
+    width: 8rem;
+  }
+
+  .Intro-social {
+    display: block;
+  }
+}

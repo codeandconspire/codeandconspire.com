@@ -49,5 +49,6 @@
 @media (min-width: 1400px) and (min-height: 900px) {
   .Display {
     font-size: 3.2rem;
+    line-height: 1.05;
   }
 }
