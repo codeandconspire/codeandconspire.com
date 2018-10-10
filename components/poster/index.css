@@ -7,28 +7,27 @@
   --Poster-space: 1.8rem;
   flex: 0 0 100%;
   flex-direction: column;
+  justify-content: space-between;
   display: flex;
   position: relative;
   z-index: 2;
   background: #000;
   color: #fff;
   overflow: hidden;
+  
 }
 
 .Poster-body {
   padding: var(--Poster-space);
+  padding-bottom: 0;
   position: relative;
   z-index: 1;
-}
-
-.Poster--light {
-  color: #000;
 }
 
 .Poster-bg {
   width: 100%;
   height: auto;
-  display: none !important;
+  /* display: none !important; */
 }
 
 .Poster-label {
@@ -81,10 +80,6 @@
   .Poster {
     --Poster-space: 2rem; 
   }
-
-  .Poster-link {
-    margin-top: 1rem;
-  }
 }
 
 @media (min-width: 900px) and (min-height: 700px) {
@@ -97,6 +92,10 @@
 @media (min-width: 1500px) and (min-height: 900px) {
   .Poster {
     --Poster-space: 3rem; 
+  }
+
+  .Poster-link {
+    margin-top: 1rem;
   }
 } 
 
@@ -114,17 +113,50 @@
 
 .Poster--lmn {
   background: #ce8c57;
+  background-image: linear-gradient(to bottom, #9a693b, #cc9e74);
+}
+
+.Poster--lmn .Poster-bg {
+  margin-top: -2rem;
+  filter: drop-shadow(10px -6px 14px rgba(0, 0, 0, 0.3));
+}
+
+.Poster--qp {
+  background: #010119 url('/quantifiedplanet-repeat.jpg');
+  background-size: 100% 100%;
+}
+
+.Poster--qp .Poster-bg {
+  margin-top: 2rem;
 }
 
 .Poster--unfluencer {
-  background: #ffed00;
+  background: #dadada;
+  color: #000;
+}
+
+.Poster--unfluencer .Poster-embed {
+  margin: 1rem auto;
 }
 
 .Poster--planet15 {
-  background: #276ab5;
+  background: #1d5ea5;
 }
 
-.Poster--goalkeepers {
-  background-color: #004661;
-  background-image: linear-gradient(to bottom, #001d3a, #004661);
+.Poster--planet15 .Poster-bg {
+  margin-top: -5rem;
+}
+
+.Poster--gates {
+  background-color: #002235;
+  background-image: linear-gradient(to bottom, #002235, #053f58);
+}
+
+.Poster--gates .Poster-bg {
+  margin-top: 1rem;
+  filter: drop-shadow(10px 15px 14px rgba(0, 0, 0, 0.3));
+}
+
+.Poster-embed {
+  pointer-events: none;
 }
