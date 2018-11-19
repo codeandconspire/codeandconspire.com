@@ -43,7 +43,7 @@
     "dedent": "^0.7.0",
     "dotenv": "^6.0.0",
     "hstream": "^1.2.0",
-    "jalla": "^0.8.0",
+    "jalla": "^0.9.3",
     "koa-route": "^3.2.0",
     "nanolru": "^1.0.0",
     "normalize.css": "^8.0.0"
