@@ -14,9 +14,7 @@ function Poster (props) {
       ${props.img ? html`
         <img class="Poster-bg" src="https://res.cloudinary.com/demo/image/fetch/c_scale,h_1342,q_auto/https://www.codeandconspire.com/${props.img.src}" alt="${props.img.alt}">
       ` : null} 
-      ${props.embed ? html`
-        ${props.embed}
-      ` : null} 
+      ${props.embed ? props.embed : null} 
     </section>
   `
 }
