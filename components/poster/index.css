@@ -13,13 +13,10 @@
   z-index: 2;
   background: #000;
   color: #fff;
-  overflow: hidden;
-  
 }
 
 .Poster-body {
-  padding: var(--Poster-space);
-  padding-bottom: 0;
+  padding: calc(var(--Poster-space) * 1.5) var(--Poster-space);
   position: relative;
   z-index: 1;
 }
@@ -27,93 +24,79 @@
 .Poster-bg {
   width: 100%;
   height: auto;
-  /* display: none !important; */
+  pointer-events: none;
 }
 
 .Poster-label {
-  display: none;
+  display: block;
   font-size: 1rem;
   font-weight: normal;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .Poster-text {
   max-width: 28rem;
-  opacity: 0.85;
   margin-top: 0;
 }
 
 .Poster-link {
-  display: inline-block;
-  padding: 0 0.2em;
-  margin: 0.3rem -0.15em 0;
-  text-decoration: underline;
+  padding: 0.3em;
+  margin: -0.3em;
+  white-space: nowrap;
+  transition: opacity 200ms ease-out;
 }
 
-.Poster-link:hover,
-.Poster-link:focus {
-
+.Poster-link:active {
+  transition: opacity 50ms;
+  opacity: 0.5;
 }
 
-.Poster-link::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-@media (min-width: 400px) and (min-height: 400px) {
+@media (min-width: 400px) {
   .Poster {
     --Poster-space: 2rem;
   }
 }
 
-@media (min-height: 500px) {
-  .Poster-label {
-    display: block;
-  }
-}
-
-@media (min-width: 500px) and (min-height: 500px) {
+@media (min-width: 500px) {
   .Poster {
     --Poster-space: 2rem; 
   }
 }
 
-@media (min-width: 900px) and (min-height: 700px) {
+@media (min-width: 900px) {
   .Poster {
     --Poster-space: 2.5rem; 
   }
 }
 
 
-@media (min-width: 1500px) and (min-height: 900px) {
+@media (min-width: 1500px) {
   .Poster {
     --Poster-space: 3rem; 
   }
-
-  .Poster-link {
-    margin-top: 1rem;
-  }
-} 
+}
 
 /**
  * Themes
  */
 
 .Poster--gg {
- background: #005190;
+  background: #f1f1f1;
+  color: #1a1a1a;
 }
 
 .Poster--gg .Poster-bg {
-  width: 110%;
+  margin-top: -2.5rem;
+}
+
+@media (min-width: 1200px) {
+  .Poster--gg .Poster-bg {
+    margin-top: -3rem;
+  }
 }
 
 .Poster--lmn {
-  background: #ce8c57;
-  background-image: linear-gradient(to bottom, #9a693b, #cc9e74);
+  background: #272B3A;
 }
 
 .Poster--lmn .Poster-bg {
@@ -121,22 +104,114 @@
   filter: drop-shadow(10px -6px 14px rgba(0, 0, 0, 0.3));
 }
 
+.Poster-stickers {
+  height: 0;
+  position: relative;
+  padding-bottom: 90%;
+  margin-top: -3rem;
+}
+
+.Poster-sticker {
+  position: absolute;
+  height: auto;
+  max-width: 15rem;
+}
+
+.Poster-sticker:nth-child(1) {
+  left: 36%;
+  bottom: 10%;
+  width: 52%;
+  transform: rotate(-12deg);
+}
+
+.Poster-sticker:nth-child(2) {
+  left: -5%;
+  bottom: 21%;
+  width: 42%;
+  transform: rotate(11deg);
+  max-width: 12rem;
+}
+
+.Poster-sticker:nth-child(3) {
+  right: -3%;
+  top: 9%;
+  width: 52%;
+  transform: rotate(13deg);
+}
+
+
+@media (min-width: 1500px) {
+  .Poster--lmn .Poster-stickers {
+    padding-bottom: 60%;
+  }
+
+  .Poster-sticker:nth-child(1) {
+    bottom: 1%;
+    width: 42%;
+  }
+
+  .Poster-sticker:nth-child(2) {
+    left: -3%;
+    bottom: 21%;
+    width: 33%;
+  }
+
+  .Poster-sticker:nth-child(3) {
+    right: 4%;
+    top: 5%;
+    width: 42%;
+  }
+}
+
+.Poster-eye {
+  animation: Poster-eye--look 3500ms 1000ms cubic-bezier(0.175, 0.885, 0.32, 1) infinite;
+  will-change: transform;
+}
+
+@keyframes Poster-eye--look {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(4.5%, 0);
+  }
+
+  50% {
+    transform: translate(3%, -8%);
+  }
+
+  75% {
+    transform: translate(2.3%, 6%);
+  }
+}
+
 .Poster--qp {
-  background: #010119 url('/quantifiedplanet-repeat.jpg');
+  background: #010119 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABn4AAAABAQMAAADKLEKcAAAABlBMVEUAABkuAN7bzjXjAAAAEElEQVR4AWMYKMD8nybgDwDntFaqPz2CbQAAAABJRU5ErkJggg==');
   background-size: 100% 100%;
 }
 
 .Poster--qp .Poster-bg {
-  margin-top: 2rem;
+  margin-top: -3rem;
 }
 
 .Poster--unfluencer {
-  background: #dadada;
+  background: #ffff00;
   color: #000;
 }
 
-.Poster--unfluencer .Poster-embed {
-  margin: 1rem auto;
+.Poster--unfluencer .Poster-body {
+  padding-bottom: 0;
+}
+
+.Poster--unfluencer .Poster-bg {
+  width: 50%;
+  height: auto;
+  margin: -0.8rem auto 1rem;
+  position: relative;
+  user-select: none;
+  max-width: 17rem;
+  z-index: 1;
 }
 
 .Poster--planet15 {
@@ -144,19 +219,44 @@
 }
 
 .Poster--planet15 .Poster-bg {
-  margin-top: -5rem;
+  margin-top: -8rem;
 }
 
-.Poster--gates {
-  background-color: #002235;
-  background-image: linear-gradient(to bottom, #002235, #053f58);
+@media (min-width: 1200px) {
+  .Poster--planet15 .Poster-bg {
+    margin-top: -11rem;
+  }
 }
 
-.Poster--gates .Poster-bg {
-  margin-top: 1rem;
-  filter: drop-shadow(10px 15px 14px rgba(0, 0, 0, 0.3));
+.Poster--hempur {
+  background: #E7C8A7 linear-gradient(0deg, #E7C8A7 0%, #F5DABD 100%);
+  color: #0d1a26;
 }
 
-.Poster-embed {
-  pointer-events: none;
+.Poster--hempur .Poster-bg {
+  margin-top: -2rem;
+}
+
+@media (min-width: 1200px) {
+  .Poster--hempur .Poster-bg {
+    margin-top: -2.5rem;
+  }
+}
+
+.Poster--contact {
+  background: #f1f1f1;
+  color: inherit;
+}
+
+.Poster-photo {
+  width: 38%;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.Poster-smile {
+  position: absolute;
+  top: 44%;
+  right: 25%;
+  transform: rotate(20deg);
 }

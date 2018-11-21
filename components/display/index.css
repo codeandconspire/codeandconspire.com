@@ -4,51 +4,72 @@
 
 .Display {
   font-weight: bold;
-  margin-bottom: 0.5rem;
-  display: none;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  max-width: 10em;
 }
 
-.Display--keep {
-  display: block;
+.Display--tiny {
+  margin-top: var(--View-space);
 }
 
-@media (min-width: 300px) {
-  .Display {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-}
-
-@media (min-width: 370px) {
-  .Display {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-}
-
-@media (min-height: 400px) {
-  .Display {
-    display: block;
-  }
-}
-
-@media (min-width: 500px) and (min-height: 500px) {
+@media (min-width: 330px) {
   .Display {
     font-size: 2rem;
+    line-height: 1.2;
   }
 }
 
-@media (min-width: 900px) and (min-height: 700px) {
-  .Display {
-    font-size: 2.33rem;
+@media (min-width: 450px) {
+  .Display:not(.Display--tiny) {
+    font-size: 2.5rem;
   }
 }
 
-@media (min-width: 1400px) and (min-height: 900px) {
-  .Display {
-    font-size: 3.2rem;
+@media (min-width: 600px) {
+  .Display:not(.Display--tiny) {
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+}
+
+@media (min-width: 700px) {
+  .Display:not(.Display--tiny) {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Display:not(.Display--small):not(.Display--tiny) {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Display:not(.Display--tiny) {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1400px) {
+  .Display:not(.Display--small):not(.Display--tiny) {
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+}
+
+@media (min-width: 1800px) {
+  .Display:not(.Display--small):not(.Display--tiny) {
+    font-size: 3.5rem;
+    line-height: 1.05;
+  }
+
+  .Display--small:not(.Display--tiny) {
+    font-size: 2.8rem;
     line-height: 1.05;
   }
 }

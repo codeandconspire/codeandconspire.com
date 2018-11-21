@@ -5,147 +5,134 @@
 
 .View {
   --View-space: 1.3rem;
-
-  --View-main-width: calc(80vw - var(--View-space));
-  --View-main-max-width: 21rem;
-  
-  --View-poster-gutter: 1.3rem;
-  --View-poster-width: calc(95vw - var(--View-space));
-  --View-poster-offset: var(--View-poster-width);
-  --View-poster-max-height: 55rem;
+  --View-intro-width: 100%;
 }
 
-.View-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.View-main {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: var(--View-main-width);
-  max-height: var(--View-poster-max-height);
-  max-width: var(--View-main-max-width);
+.View-intro {
+  width: var(--View-intro-width);
+  min-height: calc(var(--vh, 100vh) - var(--View-space));
   display: flex;
   flex-direction: column;
   padding: var(--View-space);
-  padding-right: calc(var(--View-space) - var(--View-poster-gutter));
+  padding-bottom: 0;
+  max-width: 35rem;
 }
 
-.View-scroll {
-  overflow-y: hidden;
-  overflow-x: scroll;
-  display: flex;
-  align-items: flex-end;
-  height: 100%;
+.View-intro--free {
+  padding-bottom: var(--View-space);
+  min-height: 100vh;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-overflow-scrolling: touch;
-  flex-wrap: nowrap;
-  -webkit-overflow-scrolling: touch;
-  -webkit-scroll-snap-type: mandatory;
-  scroll-snap-type: x mandatory;
-  -webkit-scroll-snap-points-x: repeat(100%);
-  scroll-snap-points-x: repeat(100%);
+  height: auto;
+  max-width: none;
 }
 
-.View-poster {
-  display: flex;
-  flex: 0 0 var(--View-poster-width);
-  height: 100%;
-  max-height: var(--View-poster-max-height);
-  padding: var(--View-space) var(--View-poster-gutter);
-  padding-right: 0;
-  scroll-snap-align: start;
+.View-title {
+  margin-bottom: var(--View-space);
+  padding-top: var(--View-space);
+  border-top: 1px solid rgba(42, 22, 43, 0.25);
 }
 
-.View-poster--empty {
-  opacity: 0;
-  color: red !important;
-  flex-basis: var(--View-main-width);
-  max-width: var(--View-main-max-width);
+.View-grid {
+  padding: var(--View-space);
 }
 
-.View-poster:not(.View-poster--empty) {
-  z-index: 1;
+.View-cell {
+  margin-bottom: var(--View-space);
 }
 
-.View-poster:last-child {
-  padding-right: var(--View-poster-gutter);
-}
-
-@media (min-width: 400px) and (min-height: 400px) {
+@media (min-width: 400px) {
   .View {
     --View-space: 2rem;
   }
 }
 
-@media (min-width: 500px) and (min-height: 500px) {
+@media (min-width: 500px) {
   .View {
-    --View-space: 2rem; 
-  }
-}
-
-@media (min-height: 500px) {
-  .View-logo {
-    display: block;
-  }
-}
-
-@media (min-height: 700px) {
-  .View-main,
-  .View-poster {
-    border: solid transparent;
-    border-width: 3rem 0;
-  }
-}
-
-@media (min-height: 1100px) {
-  .View {
-    --View-poster-max-height: 65rem;
+    --View-space: 3rem; 
   }
 }
 
 @media (min-width: 700px) {
   .View {
-    --View-poster-width: calc(51vw - var(--View-space));
+    --View-space: 2rem; 
   }
 }
 
-@media (min-width: 900px) and (min-height: 700px) {
+@media (min-width: 900px) {
   .View {
-    --View-space: 3rem; 
-    --View-poster-gutter: 2rem;
-    --View-main-max-width: 30rem;
-    --View-poster-width: calc(49vw - var(--View-space));
+    --View-space: 3rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .View {
+    --View-intro-width: 50%;
+  }
+
+  .View-title {
+    display: none;
+  }
+
+  .View-intro:not(.View-intro--free) {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .View-grid {
+    margin-left: var(--View-intro-width);
+    width: 50%;
+    padding-left: 0;
+    /* margin-top: 19vh; */
+    padding-bottom: calc(var(--View-space) / 1.5);
+  }
+
+  .View-cell {
+    margin-bottom: calc(var(--View-space) / 2);
   }
 }
 
 @media (min-width: 1200px) {
   .View {
-    --View-poster-width: calc(44vw - var(--View-space));
+    --View-intro-width: calc(100% / 3);
+  }
+
+  .View-grid {
+    width: calc(var(--View-intro-width) * 2);
+    column-count: 2;
+    column-gap: calc(var(--View-space) / 2);
+    orphans: 1;
+    widows: 1;
+    /* margin-top: 8vh; */
+  }
+
+  .View-cell:nth-child(2) {
+    /* margin-top: 18vh; */
+  }
+
+  .View-cell {
+    display: inline-block;
+    width: 100%;
   }
 }
 
 @media (min-width: 1400px) {
-  .View {
-    --View-poster-width: calc(32vw - var(--View-space));
+  .View-grid {
+    /* padding-bottom: 0; */
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 2200px) {
   .View {
-    --View-main-max-width: 35rem;
+    --View-intro-width: calc(100% / 4);
   }
-}
 
-@media (min-width: 2000px) {
-  .View {
-    --View-poster-width: calc(25vw - var(--View-space));
+  .View-grid {
+    width: calc(var(--View-intro-width) * 3);
+    column-count: 3;
+  }
+
+  .View-cell:nth-child(6) {
+    /* margin-top: 45vh; */
   }
 }

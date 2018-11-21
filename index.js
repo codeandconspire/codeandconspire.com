@@ -12,6 +12,7 @@ app.use(require('choo-service-worker')('/sw.js'))
 app.use(require('./lib/meta'))
 
 app.route('/', require('./views/home'))
+app.route('/manifesto', require('./views/manifesto'))
 app.route('/404', require('./views/404'))
 
 try {

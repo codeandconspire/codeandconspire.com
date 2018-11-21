@@ -3,7 +3,7 @@
 @import "./global";
 
 .u-nowrap {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 .u-hidden {
