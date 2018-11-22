@@ -20,7 +20,7 @@
       "label": "Maktsalongen",
       "id": "lmn",
       "title": "Life’s a handful?",
-      "text": "Young women who are burning out is a growing problem in Sweden. We created a text based coach to help them to be able say no and handle stress in their everyday life. We, unfortunately, had over five thousands signups after only two days.",
+      "text": "Young women who are burning out is a growing problem in Sweden. We created a text-based coach to help them to be able to say no and handle stress in their everyday life. We, unfortunately, had over five thousand signups after only two days.",
       "link": {
         "text": "Read more",
         "href": "https://www.litemycket.nu/"
@@ -30,7 +30,7 @@
       "label": "Quantified Planet",
       "id": "qp",
       "title": "Healthier cities with real-time data",
-      "text": "The idea works, but can be hard to explain. We created a logotype, brand and an award-winning website that explain something complex in an inspiring way.",
+      "text": "The idea works but can be hard to explain. We created a logotype, brand and an award-winning website that explain something complex in an inspiring way.",
       "link": {
         "text": "Read more",
         "href": "https://www.quantifiedplanet.org/"
@@ -46,7 +46,7 @@
       "label": "Amnesty International",
       "id": "unfluencer",
       "title": "Troll factory for the good guys",
-      "text": "We helped Amnesty release thousands of friendly bots on Twitter to fight for an network free of online harassment. An unusual project for sure.",
+      "text": "We helped Amnesty release thousands of friendly bots on Twitter to fight for a network free of online harassment. An unusual project for sure.",
       "link": {
         "text": "Read more",
         "href": "https://www.amnesty.se/unfluencer/"
@@ -62,7 +62,7 @@
       "label": "Planet 15",
       "id": "planet15",
       "title": "Level up! Your planet is flourishing",
-      "text": "Planet 15 is a fun and immersive mobile game that inspires citizens to explore nearby local nature, while helping scientists collect environmental data. Launching 2019.",
+      "text": "Planet 15 is a fun and immersive mobile game that inspires citizens to explore nearby local nature while helping scientists collect environmental data. Launching 2019.",
       "link": {
         "text": "Read more",
         "href": "https://planet15.org"
@@ -76,8 +76,8 @@
     }, {
       "label": "Hempur",
       "id": "hempur",
-      "title": "Sustainable toilet paper",
-      "text": "Things we learn as consultants: Bamboo is not a tree but grass, it's silky soft and has an extreamly low carbon footprint. The fantastic team at Hempur just started their journey, and brought these brand online.",
+      "title": "Bamboo toilet paper?",
+      "text": "Things we learn as consultants: Bamboo is not a tree but grass, it's silky soft and has a low carbon footprint. The fantastic team at Hempur just started their journey and brought these brand online.",
       "link": {
         "text": "Read more",
         "href": "https://hempur.se"
