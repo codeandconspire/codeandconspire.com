@@ -36,7 +36,7 @@ function manifesto (state, emit) {
 function meta (state) {
   return {
     'og:image': '/share.png',
-    title: 'Manifesto _ code and conspire',
+    title: 'Manifesto',
     description: 'As a part of the post-silicon-valley movement, we have concluded that large corporations can\'t be relied upon to produce and maintain gratifying, reliable, human-centered digital products and services. The systems and incentives are often in direct conflict.'
   }
 }

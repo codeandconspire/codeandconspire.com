@@ -40,7 +40,7 @@ function home (state, emit) {
           <section class="Poster Poster--contact" id="poster-contact">
             <div class="Poster-body">
               <img class="Poster-photo" src="/anton-trollback.jpg" alt="Portrait of Anton Trollbäck">
-              <h1 class="Display">Contact Anton,<br /> he’s nice!</h1>
+              <h1 class="Display">For inquiries, <br /> contact Anton</h1>
               <p><a class="Poster-link" href="mailto:anton@codeandconspire.com">anton@codeandconspire.com</a></p>
               <p><a class="Poster-link" href="tel:+46735819750">+46 735 819 750</a></p>
               <svg class="Poster-smile" role="presentation" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g transform="translate(1 1)" fill="none" fill-rule="evenodd"><circle stroke="#28182C" stroke-width="2" cx="19" cy="19" r="19"/><circle fill="#28182C" cx="13.15" cy="14.15" r="2.15"/><circle fill="#28182C" cx="25.15" cy="14.15" r="2.15"/><path d="M9.7 24c2.26 3.3 5.807 5.027 9.348 5.027 3.541 0 6.924-1.727 9.348-5.027" stroke="#28182C" stroke-width="2"/></g></svg>

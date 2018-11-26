@@ -27,7 +27,7 @@ function createView (view, meta) {
       children = state.error ? error(state.error) : view(state, emit)
       let next = meta(state)
       if (next.title !== DEFAULT_TITLE) {
-        next.title = `${next.title} _ ${DEFAULT_TITLE}`
+        next.title = `${next.title} >_ ${DEFAULT_TITLE}`
       }
       emit('meta', next)
     } catch (err) {
@@ -36,7 +36,7 @@ function createView (view, meta) {
       emit('meta', {
         description: '',
         'og:image': '/share.png',
-        title: `Oh no _ ${DEFAULT_TITLE}`
+        title: `Oh no >_ ${DEFAULT_TITLE}`
       })
     }
 
