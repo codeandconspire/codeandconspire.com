@@ -16,7 +16,7 @@ function Intro (body, footer) {
       ${footer ? html`
       <div class="Intro-footer">
         <p>
-          <a class="Intro-link" target="_blank" rel="noopener noreferrer" href="https://www.google.se/maps/place/Alma/@59.3215566,18.0169478,13z/data=!4m8!1m2!2m1!1salma!3m4!1s0x465f9d5b00af1afd:0x44480b8d5d69a7c7!8m2!3d59.334149!4d18.077116?dcr=0">Svartmangatan 16, Stockholm</a><br>
+          <a class="Intro-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/code+and+conspire/@59.3241389,18.0717791,15z/data=!4m2!3m1!1s0x0:0xcd1a3292083a09a8?ved=2ahUKEwjkvu-t_oPfAhWC3CwKHSuVASIQ_BIwCnoECAUQCA">Svartmangatan 16, Stockholm</a><br>
           <a class="Intro-link" href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a><br>
           <a class="Intro-link" href="tel:+46735819750">+46 735 819 750</a>
         </p>
