@@ -30,15 +30,21 @@ function home (state, emit) {
           <div class="View-cell ${animate ? 'u-slideInY' : ''} View-headline" style="${animate ? `animation-delay: ${delay(0)}ms;` : ''}">
             <h2 class="u-textSizeLg u-textBold">${text`Our case studies`}</h2>
           </div>
-          ${doc.data.featured_cases.map((props, i) => html`
-            <div class="View-cell u-md-size1of2 u-spaceT6 ${animate ? 'u-slideInY' : ''}" style="${animate ? `animation-delay: ${delay(i)}ms;` : ''}">
-              <a href="${state.documents.resolve(props.case)}" class="Figure-outer" onclick=${explode} onmouseover=${prefetch(props.case.id)} ontouchstart=${prefetch(props.case.id)}>
-                ${state.cache(Figure, `${props.case.uid}-${Figure.id(props.image)}:${state.ui.isPartial}`, {interactive: true, size: 'half'}).render(props.image)}
-                <h3 class="u-textBold u-spaceT3">${asText(props.case.data.title)}</h3>
-                <p class="u-spaceT1">${asText(props.case.data.description)}</p>
-              </a>
-            </div>
-          `)}
+          ${doc.data.featured_cases.map(function (props, i) {
+            setTimeout(function () {
+              prefetch(props.case.id)()
+            }, (i + 1) * 1000)
+
+            return html`
+              <div class="View-cell u-md-size1of2 u-spaceT6 ${animate ? 'u-slideInY' : ''}" style="${animate ? `animation-delay: ${delay(i)}ms;` : ''}">
+                <a href="${state.documents.resolve(props.case)}" class="Figure-outer" onclick=${explode} onmouseover=${prefetch(props.case.id)} ontouchstart=${prefetch(props.case.id)}>
+                  ${state.cache(Figure, `${props.case.uid}-${Figure.id(props.image)}:${state.ui.isPartial}`, {interactive: true, size: 'half'}).render(props.image)}
+                  <h3 class="u-textBold u-spaceT3">${asText(props.case.data.title)}</h3>
+                  <p class="u-spaceT1">${asText(props.case.data.description)}</p>
+                </a>
+              </div>
+            `
+          })}
         </div>
       </section>
     </main>
