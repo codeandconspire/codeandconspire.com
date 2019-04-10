@@ -74,6 +74,6 @@ function meta (state) {
   return {
     'og:image': '/share.png',
     title: 'code and conspire',
-    description: doc.data.summary[0].text
+    description: doc.data.description
   }
 }
