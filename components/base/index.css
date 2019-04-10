@@ -1,59 +1,46 @@
 @import "normalize.css";
-@import "./global";
-@import "./utilities";
+@import "./transitions";
+@import "./display";
+@import "./layout";
+@import "./space";
+@import "./size";
+@import "./text";
 
-/**
- * Font declaration
- */
-
- @font-face {
+@font-face {
   font-family: "GTE";
   font-style: normal;
   font-weight: normal;
+  src: url("./gte-light.woff") format("woff");
   font-display: block;
-  src: url("./fonts/gte-regular.woff") format("woff");
 }
 
 @font-face {
- font-family: "GTE";
- font-style: normal;
- font-weight: bold;
- font-display: block;
- src: url("./fonts/gte-medium.woff") format("woff");
+  font-family: "GTE";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./gte-medium.woff") format("woff");
+  font-display: block;
 }
-
-/**
- * Base styles
- */
 
 :root {
-  background-color: var(--background);
-  font-family: var(--font);
+  background: var(--theme);
+  background-attachment: fixed;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
   line-height: var(--font-line-height);
   letter-spacing: var(--font-letter-spacing);
-  font-size: 15px;
-  color: var(--color);
-  cursor: default;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-}
-
-@media (min-width: 330px) {
-  :root {
-    font-size: 16px;
-  }
-}
-
-:root,
-body {
-  width: 100%;
-  height: 100%;
 }
 
 ::selection {
   background: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-color);
+}
+
+html {
+  min-height: 100%;
 }
 
 *,
@@ -62,55 +49,46 @@ body {
   box-sizing: border-box;
 }
 
- a {
-  color: inherit;
-  text-decoration: none;
-}
-
+p,
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 ul,
 ol,
-p {
-  padding: 0;
+pre,
+blockquote {
   margin: 0;
   font: inherit;
   line-height: inherit;
 }
 
-p {
-  margin: 0.7rem 0;
-  max-width: 36em;
-}
-
-img {
+hr {
   display: block;
   width: 100%;
+  height: 2px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background-color: currentColor;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+blockquote {
+  margin: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+  font: 13px/1.4 monospace;
   max-width: 100%;
-}
-
-ul {
-  list-style-type: square;
-  padding-left: 1rem;
-  max-width: 36em;
-  margin: 0.7rem 0;
-}
-
-li + li {
-  margin-top: 0.7rem;
-}
-
-
-a,
-area,
-button,
-input,
-label,
-select,
-summary,
-textarea,
-[tabindex] {
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
+  overflow: scroll;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 1em;
 }

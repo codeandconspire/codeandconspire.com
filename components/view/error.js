@@ -1,19 +1,35 @@
 var html = require('choo/html')
+var {i18n} = require('../base')
+
+var text = i18n()
 
 module.exports = error
 
 function error (err) {
   return html`
-    <main class="View-intro">
-      <h1 class="u-hiddenVisually">404 – Page not found</h1>
-      <svg width="92" height="47" viewBox="0 0 92 47" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M19.553 3.076H3.2V43h28.873V15.596h-12.52V3.076zm3.06 2.164v7.296h7.296L22.614 5.24zM.14.015h21.578l13.417 13.417v32.63H.139V.015zm11 27h13v3.06h-13v-3.06zm-3 3h3v3.06h-3v-3.06zm1-21h3v6.06h-3v-6.06zm15 21h3v3.06h-3v-3.06z" fill="currentColor" fill-rule="nonzero"/><path d="M51.28 35.368c2.4 0 4.16 1.568 4.16 3.936s-1.76 3.936-4.16 3.936c-2.384 0-4.144-1.568-4.144-3.936s1.76-3.936 4.144-3.936zm0 2.208c-.96 0-1.728.672-1.728 1.728s.768 1.728 1.728 1.728c.976 0 1.728-.672 1.728-1.728s-.752-1.728-1.728-1.728zm7.864-5.776v4.784h.032c.512-.784 1.312-1.216 2.368-1.216 1.632 0 2.784.944 2.784 3.056V43h-2.416v-3.904c0-1.104-.464-1.6-1.344-1.6-.816 0-1.424.48-1.424 1.792V43h-2.416V31.8h2.416zm16.4 3.568c1.632 0 2.784.944 2.784 3.056V43h-2.4v-3.904c0-1.104-.464-1.6-1.36-1.6-.816 0-1.424.48-1.424 1.792V43h-2.416v-7.392h2.368v1.12h.032c.512-.864 1.376-1.36 2.416-1.36zm8.136 0c2.4 0 4.16 1.568 4.16 3.936s-1.76 3.936-4.16 3.936c-2.384 0-4.144-1.568-4.144-3.936s1.76-3.936 4.144-3.936zm0 2.208c-.96 0-1.728.672-1.728 1.728s.768 1.728 1.728 1.728c.976 0 1.728-.672 1.728-1.728s-.752-1.728-1.728-1.728zM92 40.424V43h-2.56v-2.576H92zM55.816 21.096v2.096h-.976V25h-2.272v-1.808H47.24v-1.84l5.088-7.152h2.512v6.896h.976zm-6.112 0h2.864v-3.952h-.064l-2.8 3.952zm12.248-7.136c2.864 0 4.464 2.032 4.464 5.632 0 3.6-1.616 5.648-4.464 5.648-2.832 0-4.464-2.048-4.464-5.648 0-3.6 1.616-5.632 4.464-5.632zm0 2.288c-1.232 0-1.952 1.216-1.952 3.344s.72 3.36 1.952 3.36c1.248 0 1.968-1.232 1.968-3.36s-.72-3.344-1.968-3.344zm14.592 4.848v2.096h-.976V25h-2.272v-1.808h-5.328v-1.84l5.088-7.152h2.512v6.896h.976zm-6.112 0h2.864v-3.952h-.064l-2.8 3.952z" fill="currentColor"/></g></svg>
-      <p><br><br>Reload or try again soon.</p>
-      ${process.env.NODE_ENV === 'development' ? html`
-        <div>
-          <pre>${err.name}: ${err.message}</pre>
-          <pre>${err.stack}</pre>
-        </div>
-      ` : null}
+    <main class="View-container View-container--nudge View-container--center">
+      <h1 class="Display Display--2">${text`Oops`}</h1>
+      <div class="Text Text--center">
+        ${err.status === 404 ? html`
+          <p>
+            ${text`There is no page at this address. Try finding your way using the menu or from` + ' '}
+            <a href="/">${text`the homepage`}</a>.
+          </p>
+        ` : html`
+          <p>
+            ${text`We apologize, an error has occured on our site. It may be temporary and you could` + ' '}
+            <a href="">${text`try again`}</a>
+            ${' ' + text`or go back to` + ' '}
+            <a href="/">${text`the homepage`}</a>.
+          </p>
+        `}
+        ${process.env.NODE_ENV === 'development' ? html`
+          <div>
+            <pre>${err.name}: ${err.message}</pre>
+            <pre>${err.stack}</pre>
+          </div>
+        ` : null}
+      </div>
     </main>
   `
 }

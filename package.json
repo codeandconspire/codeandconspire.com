@@ -1,6 +1,6 @@
 {
   "name": "codeandconspire.com",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "Website for code and conspire",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "documentify": {
     "transform": [
       [
-        "./lib/document.js",
+        "./lib/document",
         {
           "order": "end"
         }
@@ -22,6 +22,7 @@
     "alias": "www.codeandconspire.com",
     "env": {
       "NODE_ENV": "production",
+      "PRISMIC_CODEANDCONSPIRE_SECRET": "@prismic-codeandconspire-secret",
       "CLOUDFLARE_CODEANDCONSPIRE_ZONE": "@cloudflare-codeandconspire-zone",
       "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
       "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key"
@@ -36,21 +37,29 @@
   "bugs": {
     "url": "https://github.com/codeandconspire/codeandconspire.com/issues"
   },
-  "homepage": "https://github.com/codeandconspire/codeandconspire.com#readme",
+  "devDependencies": {
+    "choo-devtools": "^2.5.0",
+    "dependency-check": "^3.1.0",
+    "standard": "^10.0.3"
+  },
   "dependencies": {
-    "choo": "^6.13.0",
+    "cccpurge": "^1.4.0",
+    "choo": "^6.13.1",
     "choo-service-worker": "^2.4.0",
     "dedent": "^0.7.0",
     "dotenv": "^6.0.0",
     "hstream": "^1.2.0",
     "jalla": "^0.9.3",
+    "koa-body": "^4.0.4",
+    "koa-compose": "^4.1.0",
     "koa-route": "^3.2.0",
     "nanolru": "^1.0.0",
-    "normalize.css": "^8.0.0"
-  },
-  "devDependencies": {
-    "choo-devtools": "^2.5.1",
-    "dependency-check": "^3.2.1",
-    "standard": "^11.0.1"
+    "nanoraf": "^3.0.1",
+    "normalize.css": "^8.0.0",
+    "postcss-url": "^7.3.2",
+    "prismic-element": "^1.0.0",
+    "prismic-javascript": "^1.5.0-beta.2",
+    "prismic-richtext": "^0.4.0",
+    "smoothscroll-polyfill": "^0.4.3"
   }
 }

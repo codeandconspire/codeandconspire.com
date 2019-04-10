@@ -1,8 +1,125 @@
 :root {
-  --background: #fff;
-  --font: 'GTE', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-line-height: 1.45;
-  --font-letter-spacing: -0.01em;
   --color: #28182C;
-  --selection-color: rgba(0, 0, 0, 0.2);
+  --background: #FFF;
+  --gray: #BBB;
+  --bright-gray: #F1F1F1;
+  --petrol: #00939E;
+  --sand: #BCB296;
+  --bright-sand: #F3F0EA;
+  --link-color: #db8a74;
+  --link-color-hover: var(--color);
+  --selection-color: rgba(197, 154, 208, 0.25);
+
+  --space: 3px;
+  --aspect: 123.57%;
+  --z-index: 0;
+  --inview: 1;
+  --offset: 0;
+  --mouse-x: 0;
+  --mouse-y: 0;
+  --snap: cubic-bezier(0.62, 0.9, 0.64, 1);
+  --slide-in: cubic-bezier(0.31, 0.96, 0.66, 1.05);
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --font-family: "GTE", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --font-line-height: 1.25;
+  --font-letter-spacing: -0.01em;
+
+  --font-size-xs: 14px;
+  --font-size-sm: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-heading-1: 32px;
+  --font-size-heading-2: 32px;
+  --font-size-heading-3: 28px;
+  --font-size-heading-4: 28px;
+  --font-size-heading-intro: 28px;
+  --font-size-heading-footer: 25px;
+}
+
+@media (min-width: 350px) {
+  :root {
+    --space: 3px;
+
+    --font-size-xs: 16px;
+    --font-size-sm: 16px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-heading-1: 38px;
+    --font-size-heading-2: 48px;
+    --font-size-heading-3: 31px;
+    --font-size-heading-4: 34px;
+    --font-size-heading-intro: 44px;
+    --font-size-heading-intro-line-height: 1.1;
+    --font-size-heading-footer: 29px;
+  }
+}
+
+@media (min-width: 600px) and (min-height: 400px) {
+  :root {
+    --space: 6px;
+
+    --font-size-xs: 16px;
+    --font-size-sm: 16px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-heading-1: 62px;
+    --font-size-heading-2: 48px;
+    --font-size-heading-3: 40px;
+    --font-size-heading-4: 32px;
+    --font-size-heading-intro: 77px;
+    --font-size-heading-intro-line-height: 1.0;
+    --font-size-heading-footer: 47px;
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 600px) {
+  :root {
+    --space: 8px;
+
+    --font-size-xs: 20px;
+    --font-size-sm: 20px;
+    --font-size-md: 20px;
+    --font-size-lg: 22px;
+    --font-size-heading-1: 90px;
+    --font-size-heading-2: 60px;
+    --font-size-heading-3: 48px;
+    --font-size-heading-4: 34px;
+    --font-size-heading-intro: 129px;
+    --font-size-heading-footer: 80px;
+  }
+}
+
+@media (min-width: 1500px) and (min-height: 800px) {
+  :root {
+    --space: 10px;
+
+    --font-size-xs: 20px;
+    --font-size-sm: 20px;
+    --font-size-md: 24px;
+    --font-size-lg: 24px;
+    --font-size-heading-1: 100px;
+    --font-size-heading-2: 72px;
+    --font-size-heading-3: 56px;
+    --font-size-heading-4: 42px;
+    --font-size-heading-intro: 179px;
+    --font-size-heading-footer: 120px;
+  }
+}
+
+@media (min-width: 2400px) and (min-height: 1000px) {
+  :root {
+    --space: 14px;
+
+    --font-size-xs: 26px;
+    --font-size-sm: 26px;
+    --font-size-md: 36px;
+    --font-size-lg: 36px;
+    --font-size-heading-1: 130px;
+    --font-size-heading-2: 88px;
+    --font-size-heading-3: 72px;
+    --font-size-heading-4: 56px;
+    --font-size-heading-intro: 215px;
+  }
 }

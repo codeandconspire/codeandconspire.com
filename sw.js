@@ -1,6 +1,7 @@
 /* eslint-env serviceworker */
 
 var TRACKING_REGEX = /https?:\/\/((www|ssl)\.)?google-analytics\.com/
+var PRISMIC_ENDPOINT = 'https://codeandconspire.cdn.prismic.io'
 var IS_DEVELOPMENT = process.env.NODE_ENV === 'development'
 var CACHE_KEY = getCacheKey()
 var FILES = [
@@ -29,9 +30,10 @@ self.addEventListener('fetch', function onfetch (event) {
     caches.open(CACHE_KEY).then(cache => {
       return cache.match(req).then(cached => {
         var isLocal = self.location.origin === url.origin
+        var isCMS = url.href.indexOf(PRISMIC_ENDPOINT) === 0
 
         // bypass cache for certain types
-        if ((isHTML && isLocal) || IS_DEVELOPMENT) {
+        if ((isHTML && isLocal) || isCMS || IS_DEVELOPMENT) {
           return update(cache, cached)
         }
 

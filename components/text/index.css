@@ -1,0 +1,83 @@
+/* @define Text */
+
+@import "../base/global";
+
+.Text {
+  display: block;
+  width: 100%;
+  max-width: 27em;
+}
+
+.Text--full {
+  max-width: none;
+}
+
+.Text--wide {
+  max-width: 50em;
+}
+
+.Text > p {
+  margin: calc(var(--space) * 2) 0;
+}
+
+.Text > p:first-child {
+  margin-top: 0;
+}
+
+.Text > p:last-child {
+  margin-bottom: 0;
+}
+
+.Text > img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.Text a {
+  position: relative;
+  color: var(--link-color);
+  transition: color 100ms var(--snap);
+}
+
+.Text a:hover {
+  color: var(--link-color-hover);
+}
+
+.Text--adaptive a {
+  color: inherit;
+}
+
+.Text--adaptive a:hover {
+  color: var(--link-color);
+}
+
+/**
+ * 1. Maintain 16/9 aspect ratio for embedded content
+ */
+
+.Text iframe {
+  width: 100vw;
+  height: calc((100vw - calc(var(--space) * 8)) * 9/16); /* 1 */
+  max-width: 100%;
+  vertical-align: top;
+  user-select: none;
+}
+
+.Text h1,
+.Text h2,
+.Text h3,
+.Text h4,
+.Text h5,
+.Text h6 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.Text h1 { font-size: var(--font-size-heading-3); }
+.Text h2 { font-size: var(--font-size-heading-lg); }
+.Text h3 { font-size: var(--font-size-heading-md); }
+.Text h4 { font-size: var(--font-size-heading-sm); }
+.Text h5 { font-size: var(--font-size-heading-sm); }
+.Text h6 { font-size: var(--font-size-heading-sm); }

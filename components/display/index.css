@@ -2,74 +2,62 @@
 
 @import "../base/global";
 
-.Display {
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.Display,
+.Display-link {
+  display: block;
+  color: var(--color);
+  font-size: inherit;
   line-height: 1.2;
-  max-width: 10em;
+  font-weight: bold;
 }
 
-.Display--tiny {
-  margin-top: var(--View-space);
+.Display--1 {
+  font-size: var(--font-size-heading-1);
+  line-height: 0.95;
 }
 
-@media (min-width: 330px) {
-  .Display {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
+.Display--2 {
+  font-size: var(--font-size-heading-2);
+  line-height: 1.1;
 }
 
-@media (min-width: 450px) {
-  .Display:not(.Display--tiny) {
-    font-size: 2.5rem;
-  }
+.Display--3 {
+  font-size: var(--font-size-heading-3);
 }
 
-@media (min-width: 600px) {
-  .Display:not(.Display--tiny) {
-    font-size: 3rem;
-    line-height: 1.05;
-  }
+.Display--4 {
+  font-size: var(--font-size-heading-4);
 }
 
-@media (min-width: 700px) {
-  .Display:not(.Display--tiny) {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
+.Display--footer {
+  font-size: var(--font-size-heading-footer);
+  line-height: 0.9;
 }
 
-@media (min-width: 1000px) {
-  .Display:not(.Display--small):not(.Display--tiny) {
-    font-size: 2.5rem;
-    line-height: 1.2;
-  }
+/**
+ * Display link
+ */
+
+.Display-link {
+  display: inline-block;
+  position: relative;
+  color: var(--link-color);
 }
 
-@media (min-width: 1200px) {
-  .Display:not(.Display--tiny) {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
+.Display-link::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+
+  position: absolute;
+  bottom: 0em;
+  left: 0;
+
+  background: currentColor;
+  transition: transform 150ms var(--snap);
+  will-change: transform;
 }
 
-@media (min-width: 1400px) {
-  .Display:not(.Display--small):not(.Display--tiny) {
-    font-size: 3rem;
-    line-height: 1.05;
-  }
-}
-
-@media (min-width: 1800px) {
-  .Display:not(.Display--small):not(.Display--tiny) {
-    font-size: 3.5rem;
-    line-height: 1.05;
-  }
-
-  .Display--small:not(.Display--tiny) {
-    font-size: 2.8rem;
-    line-height: 1.05;
-  }
+.Display-link:hover::after {
+  transform: translateY(0.15em);
 }
