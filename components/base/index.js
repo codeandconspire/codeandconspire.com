@@ -1,6 +1,7 @@
 var fs = require('fs')
 var path = require('path')
 var assert = require('assert')
+var LRU = require('nanolru')
 var html = require('choo/html')
 var nanoraf = require('nanoraf')
 var common = require('./lang.json')
@@ -237,4 +238,50 @@ function supports (rule) {
   style.parentElement.removeChild(style)
   el.parentElement.removeChild(el)
   return result
+}
+
+var MEMO = new LRU()
+
+// momize function
+// (fn, arr) -> any
+exports.memo = memo
+function memo (fn, keys) {
+  assert(Array.isArray(keys) && keys.length, 'memo: keys should be non-empty array')
+  var key = JSON.stringify(keys)
+  var result = MEMO.get(key)
+  if (!result) {
+    result = fn.apply(undefined, keys)
+    MEMO.set(key, result)
+  }
+  return result
+}
+
+// compose srcset attribute from url for given sizes
+// (str, arr, obj?) -> str
+exports.srcset = srcset
+function srcset (uri, sizes, opts = {}) {
+  var type = opts.type || 'fetch'
+  var transforms = opts.transforms
+  if (!transforms) transforms = 'c_fill,f_auto,q_auto'
+  if (!/c_/.test(transforms)) transforms += ',c_fill'
+  if (!/f_/.test(transforms)) transforms += ',f_jpg'
+  if (!/q_/.test(transforms)) transforms += ',q_auto'
+
+  // trim prismic domain from uri
+  var parts = uri.split('bomaglobal.cdn.prismic.io/bomaglobal/')
+  uri = parts[parts.length - 1]
+
+  return sizes.map(function (size) {
+    var transform = transforms
+    if (Array.isArray(size)) {
+      transform = opts.transform ? size[1] + ',' + opts.transforms : size[1]
+      if (!/c_/.test(transform)) transform += ',c_fill'
+      if (!/f_/.test(transform)) transform += ',f_auto'
+      if (!/q_/.test(transform)) transform += ',q_auto'
+      size = size[0]
+    }
+    if (opts.aspect) transform += `,h_${Math.floor(size * opts.aspect)}`
+
+    return `/media/${type}/${transform},w_${size}/${uri} ${size}w`
+  }).join(',')
 }

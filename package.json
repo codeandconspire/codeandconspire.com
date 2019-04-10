@@ -22,10 +22,13 @@
     "alias": "www.codeandconspire.com",
     "env": {
       "NODE_ENV": "production",
+      "CLOUDINARY_KEY": "@cloudinary-key",
+      "CLOUDINARY_SECRET": "@cloudinary-secret",
       "PRISMIC_CODEANDCONSPIRE_SECRET": "@prismic-codeandconspire-secret",
       "CLOUDFLARE_CODEANDCONSPIRE_ZONE": "@cloudflare-codeandconspire-zone",
       "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
-      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key"
+      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key",
+      "POLYFILL_FEATURES": "default-3.3,Array.prototype.find,Array.prototype.findIndex,Array.prototype.includes"
     }
   },
   "repository": {
@@ -46,6 +49,7 @@
     "cccpurge": "^1.4.0",
     "choo": "^6.13.1",
     "choo-service-worker": "^2.4.0",
+    "cloudinary": "^1.13.2",
     "dedent": "^0.7.0",
     "dotenv": "^6.0.0",
     "hstream": "^1.2.0",
