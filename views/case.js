@@ -126,24 +126,6 @@ function caseView (state, emit) {
               </div>
             `
           }
-          case 'cases': return html`
-            <div class="View-divider">
-              <h2 class="u-textSizeLg u-textBold">
-                ${text`More case studies`}
-              </h2>
-              <div class="View-grid View-grid--tight">
-                ${slice.items.map((item, index, list) => html`
-                  <div class="View-cell u-md-size1of2 u-spaceT3">
-                    <a href="${state.documents.resolve(item.link)}" class="Link--splash u-spaceB2">
-                      ${state.cache(Figure, `${doc.uid}-${Figure.id(item.image)}`, {interactive: true}).render(item.image)}
-                      <h3 class="u-textBold u-spaceT1">${asText(item.link.data.title)}</h3>
-                      <p>${asText(item.link.data.description)}</p>
-                    </a>
-                  </div>
-                `)}
-              </div>
-            </div>
-          `
           default: return null
         }
       })}
@@ -225,7 +207,7 @@ function meta (state) {
     }
   }
   return {
-    'og:image': doc.data.image.url,
+    'og:image': doc.data.image.url ? doc.data.image.url : '/share.png',
     title: asText(doc.data.title).trim(),
     description: doc.data.description[0].text
   }

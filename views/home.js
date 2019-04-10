@@ -25,7 +25,7 @@ function home (state, emit) {
   return html`
     <main class="View-container View-container--nudge">
       <section id="cases">
-        <h1 class="Display Display--1 u-spaceIntro u-spaceIntro--alt ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">Digital innovations won’t be wasted on generating huge amounts of profit. Let’s use it for good.</h1>
+        <h1 class="Display Display--1 u-spaceIntro u-spaceIntro--alt ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title)}</h1>
         <div class="View-grid">
           <div class="View-cell ${animate ? 'u-slideInY' : ''} View-headline" style="${animate ? `animation-delay: ${delay(0)}ms;` : ''}">
             <h2 class="u-textSizeLg u-textBold">${text`Our case studies`}</h2>
@@ -33,7 +33,7 @@ function home (state, emit) {
           ${doc.data.featured_cases.map(function (props, i) {
             setTimeout(function () {
               prefetch(props.case.id)()
-            }, (i + 1) * 1000)
+            }, (i + 1) * 500)
 
             return html`
               <div class="View-cell u-md-size1of2 u-spaceT6 ${animate ? 'u-slideInY' : ''}" style="${animate ? `animation-delay: ${delay(i)}ms;` : ''}">
