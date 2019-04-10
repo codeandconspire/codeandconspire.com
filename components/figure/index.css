@@ -4,6 +4,7 @@
 
 .Figure {
   display: block;
+  width: 100%;
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -13,7 +14,6 @@
 }
 
 .Figure-container {
-  max-height: 95vh;
   position: relative;
   background: var(--bright-gray);
   transform:
@@ -65,7 +65,7 @@
   left: 0;
   top: 0;
   z-index: 1;
-  color: var(--bright-sand);
+  color: #fff;
   pointer-events: none;
 }
 

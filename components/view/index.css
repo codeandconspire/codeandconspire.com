@@ -64,7 +64,7 @@
   margin-top: calc((var(--space) * 2) * -1); /* 1 */
 }
 
-@media (min-width: 600px) and (min-height: 400px){
+@media (min-width: 600px) and (min-height: 400px) {
   .View-home {
     max-width: 120px;
   }
@@ -78,6 +78,18 @@
 
   .View-header {
     padding-top: calc((var(--space) * 4) + 5px); /* 1 */
+  }
+}
+
+@media (min-width: 1500px) and (min-height: 800px) {
+  .View-home {
+    max-width: 160px;
+  }
+}
+
+@media (min-width: 2400px) and (min-height: 1000px) {
+  .View-home {
+    max-width: 200px;
   }
 }
 
@@ -204,7 +216,7 @@
   margin-bottom: calc((var(--space) * 2) * -1);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 600px) and (min-height: 400px) {
   .View-headline {
     margin-bottom: calc((var(--space) * 6) * -1);
   }
