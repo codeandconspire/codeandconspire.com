@@ -4,6 +4,7 @@ var Component = require('choo/component')
 module.exports = class Takeover extends Component {
   constructor (id, state, emit) {
     super(id)
+    this.id = id
     this.state = state
     this.emit = emit
   }
@@ -61,6 +62,6 @@ module.exports = class Takeover extends Component {
   }
 
   createElement () {
-    return html`<div class="Takeover"></div>`
+    return html`<div class="Takeover" id="${this.id}"></div>`
   }
 }

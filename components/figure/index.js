@@ -9,7 +9,7 @@ module.exports = Figure
 function Figure (id, state, emit, opts) {
   opts = opts || {}
   if (opts.interactive) return new InteractiveFigure(id, state, emit, opts)
-  Object.assign(this, opts)
+  Object.assign(this, opts, { id })
 }
 
 Figure.prototype.render = createElement
@@ -60,7 +60,7 @@ function createElement (img) {
   }, [img, sizes])
 
   return html`
-    <figure class="Figure">
+    <figure class="Figure" id="${this.id}">
       <div class="Figure-container" style="padding-bottom:${this.aspect ? 'var(--aspect)' : ((img.dimensions.height / img.dimensions.width * 100).toFixed(2) + '%')};">
         ${this.interactive ? decorator() : null}
         ${image ? getImage(image) : null}

@@ -5,13 +5,18 @@ var {i18n} = require('../base')
 var text = i18n()
 
 module.exports = class Footer extends Component {
+  constructor (id, state, emit) {
+    super(id)
+    this.id = id
+  }
+
   update () {
     return false
   }
 
   createElement () {
     return html`
-      <footer class="View-footer">
+      <footer class="View-footer" id="${this.id}">
         <div class="View-contact">
           <h2>
             <span class="u-textSizeLg u-textBold u-block u-spaceT8 u-spaceB4">
