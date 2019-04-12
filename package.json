@@ -6,6 +6,7 @@
   "scripts": {
     "test": "standard && dependency-check package.json",
     "start": "node server.js",
+    "build": "jalla build index.js --sw sw.js",
     "deploy": "npx now -T codeandconspire && npx now alias -T codeandconspire"
   },
   "documentify": {
@@ -53,7 +54,7 @@
     "dedent": "^0.7.0",
     "dotenv": "^6.0.0",
     "hstream": "^1.2.0",
-    "jalla": "^0.9.3",
+    "jalla": "^0.12.0-7",
     "koa-body": "^4.0.4",
     "koa-compose": "^4.1.0",
     "koa-route": "^3.2.0",
@@ -62,7 +63,7 @@
     "normalize.css": "^8.0.0",
     "postcss-url": "^7.3.2",
     "prismic-element": "^1.0.0",
-    "prismic-javascript": "^1.5.0-beta.2",
+    "prismic-javascript": "^2.0.3",
     "prismic-richtext": "^0.4.0",
     "smoothscroll-polyfill": "^0.4.3"
   }

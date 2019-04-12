@@ -12,7 +12,10 @@ var imageproxy = require('./lib/cloudinary-proxy')
 
 var PRISMIC_ENDPOINT = 'https://codeandconspire.cdn.prismic.io/api/v2'
 
-var app = jalla('index.js', {sw: 'sw.js'})
+var app = jalla('index.js', {
+  sw: 'sw.js',
+  serve: Boolean(process.env.NOW)
+})
 
 app.use(get('/robots.txt', function (ctx, next) {
   if (ctx.host === process.env.npm_package_now_alias) return next()
