@@ -61,6 +61,7 @@
     "nanolru": "^1.0.0",
     "nanoraf": "^3.0.1",
     "normalize.css": "^8.0.0",
+    "postcss-custom-properties": "^8.0.10",
     "postcss-url": "^7.3.2",
     "prismic-element": "^1.0.0",
     "prismic-javascript": "^2.0.3",
