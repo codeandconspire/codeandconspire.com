@@ -62,8 +62,18 @@ function caseView (state, emit) {
           case 'gallery': return html`
             <div class="View-grid">
               ${slice.items.map((item, index, list) => html`
-                <div class="View-cell u-md-size1of${list.length > 3 ? 2 : list.length} u-spaceB4">
+                <div class="View-cell u-md-size1of2 u-spaceB4">
                   ${state.cache(Figure, Figure.id(item.image), {size: 'half'}).render(item.image)}
+                </div>
+              `)}
+            </div>
+          `
+          case 'people': return html`
+            <div class="View-grid">
+              ${slice.items.map((item, index, list) => html`
+                <div class="View-cell u-size1of2 u-md-size1of3 u-spaceB6">
+                  ${state.cache(Figure, Figure.id(item.image), {size: 'third'}).render(item.image)}
+                  <div class="Text u-spaceT3">${asElement(item.text)}</div>
                 </div>
               `)}
             </div>

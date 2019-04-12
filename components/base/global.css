@@ -10,7 +10,7 @@
   --link-color-hover: var(--color);
   --selection-color: rgba(197, 154, 208, 0.25);
 
-  --space: 3px;
+  --space: 4px;
   --aspect: 123.57%;
   --z-index: 0;
   --inview: 1;
@@ -34,7 +34,7 @@
 
 @media (min-width: 350px) {
   :root {
-    --space: 3px;
+    --space: 4px;
     --font-size: 16px;
     --font-size-heading: 38px;
     --font-size-heading-intro: 44px;
@@ -45,8 +45,8 @@
 
 @media (min-width: 600px) and (min-height: 400px) {
   :root {
-    --space: 6px;
-    --font-size: 16px;
+    --space: 5px;
+    --font-size: 17px;
     --font-size-heading: 62px;
     --font-size-heading-intro: 77px;
     --font-size-heading-intro-line-height: 1.0;
@@ -56,8 +56,8 @@
 
 @media (min-width: 1000px) and (min-height: 600px) {
   :root {
-    --space: 8px;
-    --font-size: 20px;
+    --space: 7px;
+    --font-size: 22px;
     --font-size-heading: 90px;
     --font-size-heading-intro: 129px;
     --font-size-heading-footer: 80px;
@@ -67,7 +67,7 @@
 @media (min-width: 1500px) and (min-height: 800px) {
   :root {
     --space: 10px;
-    --font-size: 20px;
+    --font-size: 24px;
     --font-size-heading: 100px;
     --font-size-heading-intro: 179px;
     --font-size-heading-footer: 120px;

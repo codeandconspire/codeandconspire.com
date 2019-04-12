@@ -40,11 +40,16 @@ class InteractiveFigure extends Component {
 }
 
 function createElement (img) {
-  var viewport = '(min-midth: 600px) 50vw, 100vw'
+  var viewport = '100vw'
   var sizes = [640, 750, 1125, 1440, [2880, 'q_50'], [3840, 'q_50']]
 
   if (this.size === 'half') {
-    viewport = '50vw'
+    viewport = '(min-midth: 600px) 50vw, 100vw'
+    sizes = [640, 750, 1125, 1440, [2880, 'q_50'], [3840, 'q_50']]
+  }
+
+  if (this.size === 'third') {
+    viewport = '(min-midth: 600px) 30vw, 50vw'
     sizes = [640, 750, 1125, 1440, [2880, 'q_50'], [3840, 'q_50']]
   }
 

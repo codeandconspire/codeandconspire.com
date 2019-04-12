@@ -10,7 +10,6 @@
   text-decoration: none;
   color: currentColor;
   background: transparent;
-  user-select: none;
 }
 
 .Figure-container {
@@ -20,6 +19,7 @@
     translateX(calc(0.5vw * var(--mouse-x)))
     translateY(calc((20% * (1 - var(--inview))) + (0.5vw * var(--mouse-y))));
   transition: transform 180ms var(--snap);
+  user-select: none;
 }
 
 .Figure-container::before {
