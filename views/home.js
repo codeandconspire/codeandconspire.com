@@ -60,9 +60,13 @@ function home (state, emit) {
 
   function explode (event) {
     if (state.ui.inTransition) return event.preventDefault()
+    var { scrollY, scrollX } = window
     var target = event.currentTarget
-    var origin = target.querySelector('.js-plus').getBoundingClientRect()
-    state.cache(Takeover, Takeover.id()).open(target.pathname, origin)
+    var coordinates = {
+      left: event.pageX - scrollX,
+      top: event.pageY - scrollY
+    }
+    state.cache(Takeover, Takeover.id()).open(target.pathname, coordinates)
     event.preventDefault()
   }
 

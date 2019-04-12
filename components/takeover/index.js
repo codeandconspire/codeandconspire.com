@@ -17,15 +17,14 @@ module.exports = class Takeover extends Component {
     return false
   }
 
-  open (href, origin) {
+  open (href, coordinates) {
     var self = this
     var el = this.element
 
     self.emit('ui:transition')
     this.emit('ui:partial', href, function (view) {
       var {innerHeight, innerWidth} = window
-      var left = origin.left + origin.width / 2
-      var top = origin.top + origin.height / 2
+      var { left, top } = coordinates
       var style = `left: ${left}px; top: ${top}px;`
       var isSlow = (
         (left > innerWidth / 4 && left < innerWidth * 0.8) &&
