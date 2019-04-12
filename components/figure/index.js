@@ -41,16 +41,16 @@ class InteractiveFigure extends Component {
 
 function createElement (img) {
   var viewport = '100vw'
-  var sizes = [640, 750, 1125, 1440, [2880, 'q_50'], [3840, 'q_50']]
+  var sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
 
   if (this.size === 'half') {
     viewport = '(min-midth: 600px) 50vw, 100vw'
-    sizes = [640, 750, 1125, 1440, [2880, 'q_50'], [3840, 'q_50']]
+    sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
   }
 
   if (this.size === 'third') {
     viewport = '(min-midth: 600px) 30vw, 50vw'
-    sizes = [640, 750, 1125, 1440, [2880, 'q_50'], [3840, 'q_50']]
+    sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
   }
 
   var image = memo(function (url, sizes) {
