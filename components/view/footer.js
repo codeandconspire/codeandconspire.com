@@ -19,7 +19,7 @@ module.exports = class Footer extends Component {
       <footer class="View-footer" id="${this.id}">
         <div class="View-contact">
           <h2>
-            <span class="u-textSizeLg u-textBold u-block u-spaceT8 u-spaceB4">
+            <span class="u-textBold u-block u-spaceT8 u-spaceB4">
               ${text`Contact us`}
             </span>
             <span class="Display Display--footer">
@@ -33,7 +33,7 @@ module.exports = class Footer extends Component {
         </div>
 
         <div class="Text Text--adaptive u-spaceB8 u-spaceT4 u-inlineBlock u-textBold">
-          <p class="u-textSizeXs u-spaceT4">
+          <p class="u-spaceT4">
             <a href="https://goo.gl/maps/TEWDAjA4sds" target="_blank" rel="noopener noreferrer">Svartmangatan 16, Stockholm</a>
             <br>
             <a href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>

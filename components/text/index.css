@@ -67,17 +67,8 @@
 
 .Text h1,
 .Text h2,
-.Text h3,
-.Text h4,
-.Text h5,
-.Text h6 {
+.Text h3 {
   margin: 0;
+  font: inehrit;
   font-weight: bold;
 }
-
-.Text h1 { font-size: var(--font-size-heading-3); }
-.Text h2 { font-size: var(--font-size-heading-lg); }
-.Text h3 { font-size: var(--font-size-heading-md); }
-.Text h4 { font-size: var(--font-size-heading-sm); }
-.Text h5 { font-size: var(--font-size-heading-sm); }
-.Text h6 { font-size: var(--font-size-heading-sm); }

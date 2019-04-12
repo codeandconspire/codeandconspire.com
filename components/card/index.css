@@ -112,7 +112,6 @@
   margin-top: calc(var(--space) * 2);
   width: 45%;
   max-width: 37em;
-  font-size: var(--font-size-xs);
 }
 
 @media (min-width: 600px) {

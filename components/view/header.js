@@ -32,11 +32,7 @@ module.exports = class Header extends Component {
         ${!isHomepage ? html`
           <div class="View-navWrap">
             <nav>
-              <a class="View-nav" href="/" onclick=${explode('white')}>
-                <svg width="10" height="10" viewBox="0 0 10 10" class="View-navIcon">
-                  <path fill-rule="evenodd" fill="currentColor" d="M6.4 5L10 8.6 8.6 10 5 6.4 1.4 10 0 8.6 3.6 5 0 1.4 1.4 0 5 3.6 8.6 0 10 1.4 6.4 5z"/>
-                </svg> ${text`Close`}
-              </a>
+              <a class="View-nav" href="/" onclick=${explode('white')}>${text`Back`}</a>
             </nav>
           </div>
         ` : html`

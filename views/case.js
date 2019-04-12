@@ -80,7 +80,7 @@ function caseView (state, emit) {
                   <div class="View-cell u-md-size1of2 u-lg-size1of3"></div>
                 ` : null}
                 <div class="View-cell u-md-size1of2 u-lg-size2of3">
-                  <div class="Text u-textSizeLg u-spaceV4">
+                  <div class="Text u-spaceV4">
                     ${asElement(slice.primary.body)}
                   </div>
                 </div>
@@ -92,14 +92,14 @@ function caseView (state, emit) {
               <div class="View-grid u-spaceV8">
                 <div class="View-cell u-md-size1of2 u-lg-size1of3 u-spaceB6">
                   <div class="Text">
-                    <h2 class="u-textSizeLg">${asText(slice.primary.heading).trim()}</h2>
+                    <h2>${asText(slice.primary.heading).trim()}</h2>
                   </div>
                 </div>
                 <div class="View-cell u-md-size1of2 u-lg-size2of3">
                   <div class="View-grid">
                     ${slice.items.map((item) => html`
                       <div class="View-cell u-lg-size1of2 u-spaceB6">
-                        <div class="Text u-textSizeLg">
+                        <div class="Text">
                           ${asElement(item.body)}
                         </div>
                       </div>
@@ -169,7 +169,7 @@ class Topic extends Component {
       <div id="${this.id}">
         ${props.heading ? html`
           <div class="Text Text--full">
-            <h2 class="u-textSizeMd">${asText(props.heading).trim()}</h2>
+            <h2>${asText(props.heading).trim()}</h2>
           </div>
         ` : null}
         <div class="Text Text--wide u-spaceT1 u-spaceB6">

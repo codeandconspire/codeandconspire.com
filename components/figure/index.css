@@ -50,7 +50,6 @@
   display: block;
   margin-top: var(--space);
   color: var(--gray);
-  font-size: var(--font-size-xs);
 }
 
 /**

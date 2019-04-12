@@ -1,9 +1,8 @@
 /* @define utilities */
 
-.u-textSizeXs { font-size: var(--font-size-xs) !important; }
-.u-textSizeSm { font-size: var(--font-size-sm) !important; }
-.u-textSizeMd { font-size: var(--font-size-md) !important; }
-.u-textSizeLg { font-size: var(--font-size-lg) !important; }
+.u-textInherit {
+  font-size: inherit;
+}
 
 .u-textBold {
   font-weight: bold !important;

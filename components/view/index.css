@@ -64,6 +64,12 @@
   margin-top: calc((var(--space) * 2) * -1); /* 1 */
 }
 
+@media (min-width: 350px) {
+  .View-home {
+    max-width: 106px;
+  }
+}
+
 @media (min-width: 600px) and (min-height: 400px) {
   .View-home {
     max-width: 120px;
@@ -102,75 +108,25 @@
 
 .View-nav {
   display: inline-block;
-  padding: 0 var(--space);
-  font-size: var(--font-size-xs);
+  padding: calc(var(--space) * 4) calc(var(--space) * 5) calc(var(--space) * 4);
   font-weight: bold;
-  margin-left: calc(var(--space) * 2);
-  margin-right: calc(var(--space) * 2);
+  margin-right: calc(var(--space) * 6);
   color: currentColor;
   text-decoration: none;
-  position: relative;
   white-space: nowrap;
-
+  line-height: 1;
   position: fixed;
   top: calc(var(--space) * 4);
   right: var(--space);
+  background: #fff;
+  border-radius: 2rem;
 }
 
-.View-nav--supplemental {
-  display: none;
-}
-
-@media (min-width: 375px) {
+@media (min-width: 600px) and (min-height: 400px) {
   .View-nav {
-    margin-left: calc(var(--space) * 0.5);
-    margin-right: calc(var(--space) * 0.5);
-  }
-
-  .View-nav--supplemental {
-    display: inline-block;
-  }
-}
-
-@media (min-width: 400px) {
-  .View-nav {
-    margin-left: calc(var(--space) * 2);
-    margin-right: calc(var(--space) * 2);
-  }
-}
-
-.View-navIcon {
-  margin-right: 0.5ch;
-  position: relative;
-  width: 0.7em;
-  height: 0.7em;
-}
-
-/**
- * Nav address & contact
- */
-
-.View-navWrap {
-  display: flex;
-  align-items: baseline;
-  text-align: right;
-}
-
-.View-navInfo {
-  font-size: var(--font-size-xs);
-  display: none;
-  margin-top: calc((var(--space) * 2) * -1);
-  user-select: auto;
-}
-
-.View-navHeading {
-  color: #000;
-  user-select: none;
-}
-
-@media (min-width: 600px) {
-  .View-navInfo {
-    display: block;
+    padding: 1em 1.6em;
+    top: calc(var(--space) * 4);
+    margin-right: calc(var(--space) * 5);
   }
 }
 
