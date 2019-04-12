@@ -223,7 +223,7 @@ function meta (state) {
   }
   return {
     'og:image': doc.data.image.url ? doc.data.image.url : '/share.png',
-    title: asText(doc.data.title).trim(),
+    title: (doc.data.label || asText(doc.data.title)).trim(),
     description: doc.data.description[0].text
   }
 }
