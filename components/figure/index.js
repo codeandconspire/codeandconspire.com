@@ -40,6 +40,19 @@ class InteractiveFigure extends Component {
 }
 
 function createElement (img) {
+  return html`
+    <figure class="Figure" id="${this.id}">
+      <div class="Figure-container" style="padding-bottom:${this.aspect ? 'var(--aspect)' : ((img.dimensions.height / img.dimensions.width * 100).toFixed(2) + '%')};">
+        ${img.url ? getImage(img) : null}
+      </div>
+      ${img.alt ? html`
+        <figcaption class="Figure-caption">${img.alt}</figcaption>
+      ` : null}
+    </figure>
+  `
+}
+
+function getImage (props) {
   var viewport = '100vw'
   var sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
 
@@ -53,33 +66,25 @@ function createElement (img) {
     sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
   }
 
-  var image = memo(function (url, sizes) {
+  var attrs = memo(function (url, sizes) {
     if (!url) return null
-    var sources = srcset(img.url, sizes)
+    var sources = srcset(props.url, sizes)
     return Object.assign({
       sizes: viewport,
       srcset: sources,
-      alt: img.alt || '',
+      alt: props.alt || '',
       src: sources.split(' ')[0]
-    }, img.dimensions)
-  }, [img, sizes])
+    }, props.dimensions)
+  }, [props.url, sizes])
+
+  if (!props.alternative) {
+    return html`<img class="Figure-image" ${attrs}>`
+  }
 
   return html`
-    <figure class="Figure" id="${this.id}">
-      <div class="Figure-container" style="padding-bottom:${this.aspect ? 'var(--aspect)' : ((img.dimensions.height / img.dimensions.width * 100).toFixed(2) + '%')};">
-        ${image ? getImage(image) : null}
-      </div>
-      ${img.alt ? html`
-        <figcaption class="Figure-caption">${img.alt}</figcaption>
-      ` : null}
-    </figure>
+    <picture>
+      <source srcset="${attrs.srcset}" media="(min-width: 600px)" sizes="${viewport}">
+      <img class="Figure-image" alt="${attrs.alt}" srcset="${srcset(props.alternative.url, [300, 600, 900])}" sizes="${viewport}" width="${attrs.width}" height="${attrs.height}" src="${attrs.src}">
+    </picture>
   `
-}
-
-function getImage (props) {
-  var attrs = {}
-  Object.keys(props).forEach(function (key) {
-    if (key !== 'src') attrs[key] = props[key]
-  })
-  return html`<img class="Figure-image" ${attrs} src="${props.src}">`
 }
