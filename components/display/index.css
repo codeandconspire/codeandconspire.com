@@ -29,22 +29,14 @@
   display: inline-block;
   position: relative;
   color: var(--link-color);
+
+  font-weight: bold;
+  color: var(--link-color);
+  text-decoration: none;
+  padding: 0.06em 0.12em 0.04em;
 }
 
-.Display-link::after {
-  content: "";
-  width: 100%;
-  height: 2px;
-
-  position: absolute;
-  bottom: 0em;
-  left: 0;
-
-  background: currentColor;
-  transition: transform 150ms var(--snap);
-  will-change: transform;
-}
-
-.Display-link:hover::after {
-  transform: translateY(0.15em);
+.Display-link:hover {
+  color: #fff;
+  background: var(--color);
 }

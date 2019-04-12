@@ -37,20 +37,23 @@
 
 .Text a {
   position: relative;
+  font-weight: bold;
   color: var(--link-color);
-  transition: color 100ms var(--snap);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .Text a:hover {
-  color: var(--link-color-hover);
+  color: #fff;
+  background: var(--color);
+  padding: 0.08em 0.12em 0.03em;
+  margin: -0.08em -0.12em -0.03em;
+  border: 0;
 }
 
 .Text--adaptive a {
   color: inherit;
-}
-
-.Text--adaptive a:hover {
-  color: var(--link-color);
+  border: 0;
 }
 
 /**

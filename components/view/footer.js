@@ -32,19 +32,19 @@ module.exports = class Footer extends Component {
           </div>
         </div>
 
-        <div class="Text Text--adaptive u-spaceB8 u-spaceT4 u-inlineBlock u-textBold">
+        <div class="Text Text--adaptive u-spaceB8 u-spaceT4 u-textBold u-inlineBlock">
           <p class="u-spaceT4">
             <a href="https://goo.gl/maps/TEWDAjA4sds" target="_blank" rel="noopener noreferrer">Svartmangatan 16, Stockholm</a>
-            <br>
-            <a href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
-            <br>
+            <div class="u-spaceV1">
+              <a href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
+            </div>
             <a href="tel:+46735819750">+46 735 819 750</a>
             <br>
-            <div class="u-spaceT4">
-              <a href="https://www.instagram.com/codeandconspire/" class="u-inlineBlock u-spaceR1">Instagram</a>
-              <a href="https://twitter.com/codeandconspire/" class="u-inlineBlock u-spaceR1">Twitter</a>
-              <a href="https://github.com/codeandconspire/" class="u-inlineBlock u-spaceR1">Github</a>
-              <a href="https://www.facebook.com/codeandconspire/" class="u-inlineBlock u-spaceR1">Facebook</a>
+            <div class="u-spaceT5">
+              <div class="u-inlineBlock u-spaceR2"><a href="https://www.instagram.com/codeandconspire/">Instagram</a></div>
+              <div class="u-inlineBlock u-spaceR2"><a href="https://twitter.com/codeandconspire/">Twitter</a></div>
+              <div class="u-inlineBlock u-spaceR2"><a href="https://github.com/codeandconspire/">Github</a></div>
+              <div class="u-inlineBlock u-spaceR2"><a href="https://www.facebook.com/codeandconspire/">Facebook</a></div>
             </div>
           </p>
         </div>
