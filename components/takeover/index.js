@@ -49,7 +49,7 @@ module.exports = class Takeover extends Component {
       window.requestAnimationFrame(function () {
         el.classList.add('is-active')
         el.appendChild(circle)
-        el.appendChild(html`<div class="u-relative">${view()}</div>`)
+        el.appendChild(html`<div class="u-relative u-sizeFull">${view()}</div>`)
       })
 
       window.addEventListener('wheel', onscroll)
