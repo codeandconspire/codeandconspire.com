@@ -23,7 +23,6 @@ class InteractiveFigure extends Component {
     super(id)
     Object.assign(this, opts)
     this.createElement = createElement
-    this.aspect = opts.aspect
   }
 
   static id (img) {
@@ -40,9 +39,10 @@ class InteractiveFigure extends Component {
 }
 
 function createElement (img) {
+  var alt = img.alternative
   return html`
     <figure class="Figure" id="${this.id}">
-      <div class="Figure-container" style="padding-bottom:${this.aspect ? 'var(--aspect)' : ((img.dimensions.height / img.dimensions.width * 100).toFixed(2) + '%')};">
+      <div class="Figure-container ${alt ? 'Figure-container--alternative' : ''}" style="--Figure-aspect: ${(img.dimensions.height / img.dimensions.width * 100).toFixed(2)}%; ${alt ? `--Figure-aspect-alternative: ${(alt.dimensions.height / alt.dimensions.width * 100).toFixed(2)}%` : ''}">
         ${img.url ? getImage(img) : null}
       </div>
       ${img.alt ? html`

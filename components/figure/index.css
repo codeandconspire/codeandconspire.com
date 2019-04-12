@@ -1,7 +1,10 @@
-/* @define Figure */
-
 @import "../base/global";
 
+:root {
+  --Figure-aspect: 100%;
+}
+
+/* @define Figure */
 .Figure {
   display: block;
   width: 100%;
@@ -13,6 +16,7 @@
 }
 
 .Figure-container {
+  padding-bottom: var(--Figure-aspect);
   position: relative;
   background: var(--bright-gray);
   transform:
@@ -20,6 +24,12 @@
     translateY(calc((20% * (1 - var(--inview))) + (0.5vw * var(--mouse-y))));
   transition: transform 180ms var(--snap);
   user-select: none;
+}
+
+@media (max-width: 599px) {
+  .Figure-container--alternative {
+    padding-bottom: var(--Figure-aspect-alternative);
+  }
 }
 
 .Figure-container::before {
