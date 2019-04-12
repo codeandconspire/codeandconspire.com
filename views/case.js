@@ -119,6 +119,11 @@ function caseView (state, emit) {
               </div>
             </div>
           `
+          case 'large_heading': return html`
+            <h2 class="Display Display--1 u-spaceIntro u-spaceB8">
+              ${asText(slice.primary.heading).trim()}
+            </h2>
+          `
           case 'video': {
             let embed = slice.primary.video.find((block) => block.type === 'embed')
 
