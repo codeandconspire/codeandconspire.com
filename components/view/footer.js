@@ -17,11 +17,9 @@ module.exports = class Footer extends Component {
   createElement () {
     return html`
       <footer class="View-footer View-container" id="${this.id}">
-        <h2 class="Display Display--1 u-spaceIntro u-spaceB8 ">
-          <span class="Display Display--footer">
-            ${text`Let’s solve a problem`}<br>
-            <a class="Display-link u-spaceT1" href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
-          </span>
+        <h2 class="Display Display--footer u-spaceIntro u-spaceB8 ">
+          ${text`Let’s solve a problem`}<br>
+          <a class="Display-link" href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
         </h2>
 
         <div class="Text Text--adaptive u-spaceT1">

@@ -31,7 +31,6 @@ module.exports = class Header extends Component {
 
         <nav>
           <ul class="View-nav">
-            <li><a class="View-link" href="/">${text`Cases`}</a></li>
             <li><a class="View-link" href="/manifesto">${text`Manifesto`}</a></li>
             <li><a class="View-link" href="/about">${text`About`}</a></li>
           </ul>

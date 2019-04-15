@@ -45,7 +45,6 @@
 .View-header  {
   flex: 0 0 auto;
   display: flex;
-  align-items: center;
   width: 100%;
   padding: calc(var(--space) * 4);
   padding-top: calc(var(--space) * 6); /* 1 */
@@ -109,12 +108,12 @@
 .View-nav {
   list-style: none;
   display: flex;
-  margin: 0.15em 0 0 0;
+  margin: 0.2em 0 0 0;
   padding: 0;
 }
 
 .View-nav > * {
-  margin-left: calc(var(--space) * 3);
+  margin-left: calc(var(--space) * 4);
 }
 
 .View-link:hover {

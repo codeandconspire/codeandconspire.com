@@ -28,7 +28,7 @@ function home (state, emit) {
         <h1 class="Display Display--1 u-spaceIntro u-spaceIntro--alt ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title)}</h1>
         <div class="View-grid" id="cases">
           <div class="View-cell ${animate ? 'u-slideInY' : ''} View-headline" style="${animate ? `animation-delay: ${delay(0)}ms;` : ''}">
-            <h2 class="u-textBold">${text`Selected cases`}</h2>
+            <h2>${text`Selected cases`}</h2>
           </div>
           ${doc.data.featured_cases.map(function (props, i) {
             setTimeout(function () {
@@ -39,8 +39,7 @@ function home (state, emit) {
               <div class="View-cell u-md-size1of2 u-spaceT6 ${animate ? 'u-slideInY' : ''}" style="${animate ? `animation-delay: ${delay(i)}ms;` : ''}">
                 <a href="${state.documents.resolve(props.case)}" class="Figure-outer" onclick=${explode} onmouseover=${prefetch(props.case.id)} ontouchstart=${prefetch(props.case.id)}>
                   ${state.cache(Figure, `${props.case.uid}-${Figure.id(props.image)}:${state.ui.isPartial}`, {interactive: true, size: 'half'}).render(props.image)}
-                  <h3 class="u-textBold u-spaceT3">${asText(props.case.data.title)}</h3>
-                  <p class="u-spaceT1">${asText(props.case.data.description)}</p>
+                  <h3 class="u-spaceT2">${asText(props.case.data.title)}</h3>
                 </a>
               </div>
             `

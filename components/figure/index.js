@@ -46,7 +46,7 @@ function createElement (img) {
         ${img.url ? getImage(img) : null}
       </div>
       ${img.alt ? html`
-        <figcaption class="u-spaceT3">${img.alt}</figcaption>
+        <figcaption class="u-spaceT2">${img.alt}</figcaption>
       ` : null}
     </figure>
   `
