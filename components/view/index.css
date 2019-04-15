@@ -106,36 +106,23 @@
   color: var(--color);
 }
 
-.View-nav.is-fixed {
-  display: inline-block;
-  padding: calc(var(--space) * 4) calc(var(--space) * 5) calc(var(--space) * 4);
-  margin-right: calc(var(--space) * 6);
-  color: currentColor;
-  text-decoration: none;
-  white-space: nowrap;
-  line-height: 1;
-  position: fixed;
-  top: calc(var(--space) * 4);
-  right: var(--space);
-  background: rgb(255, 255, 255);
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.03);
-  border-radius: 2rem;
+.View-nav {
+  list-style: none;
+  display: flex;
+  margin: 0.15em 0 0 0;
+  padding: 0;
 }
 
-@supports (-webkit-backdrop-filter: blur(10px)) {
-  .View-nav.is-fixed {
-    box-shadow: none;
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(10px);
-  }
+.View-nav > * {
+  margin-left: calc(var(--space) * 3);
 }
 
-@media (min-width: 600px) and (min-height: 400px) {
-  .View-nav.is-fixed {
-    padding: 1em 1.6em;
-    top: calc(var(--space) * 4);
-    margin-right: calc(var(--space) * 5);
-  }
+.View-link:hover {
+  color: #fff;
+  background: var(--color);
+  padding: 0.08em 0.12em 0;
+  margin: -0.08em -0.12em 0;
+  border: 0;
 }
 
 /**
@@ -144,12 +131,10 @@
 
 .View-footer {
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-bottom: 5vh;
+  justify-content: flex-end;
+  padding-bottom: 10vh;
 }
 
 .View-contact {

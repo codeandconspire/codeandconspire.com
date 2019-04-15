@@ -20,7 +20,7 @@ function createView (view, meta) {
       children = state.error ? error(state.error) : view(state, emit)
       let next = meta(state)
       if (next.title !== DEFAULT_TITLE) {
-        next.title = `${next.title} | ${DEFAULT_TITLE}`
+        next.title = `${next.title} >_ ${DEFAULT_TITLE}`
       }
       emit('meta', next)
     } catch (err) {
@@ -29,8 +29,19 @@ function createView (view, meta) {
       emit('meta', {
         description: '',
         'og:image': '/share.png',
-        title: `${text`Oops`} | ${DEFAULT_TITLE}`
+        title: `${text`Oops`} >_ ${DEFAULT_TITLE}`
       })
+    }
+
+    prefetch('XK3lsREAAFjd6pAM')() // Home
+    prefetch('XK4YgxEAABX_62qB')() // Manifesto
+    prefetch('XK4X5hEAACzt62hY')() // About
+
+    function prefetch (id) {
+      return function () {
+        var doc = state.documents.items.find((item) => item.id === id)
+        if (!doc) emit('doc:fetch', {id}, {silent: true})
+      }
     }
 
     return html`

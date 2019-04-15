@@ -46,8 +46,8 @@
 .Text a:hover {
   color: #fff;
   background: var(--color);
-  padding: 0.08em 0.12em 0.03em;
-  margin: -0.08em -0.12em -0.03em;
+  padding: 0.08em 0.12em 0;
+  margin: -0.08em -0.12em 0;
   border: 0;
 }
 

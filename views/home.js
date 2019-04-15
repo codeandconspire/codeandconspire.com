@@ -24,9 +24,9 @@ function home (state, emit) {
 
   return html`
     <main class="View-container View-container--nudge">
-      <section id="cases">
+      <section>
         <h1 class="Display Display--1 u-spaceIntro u-spaceIntro--alt ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title)}</h1>
-        <div class="View-grid">
+        <div class="View-grid" id="cases">
           <div class="View-cell ${animate ? 'u-slideInY' : ''} View-headline" style="${animate ? `animation-delay: ${delay(0)}ms;` : ''}">
             <h2 class="u-textBold">${text`Selected cases`}</h2>
           </div>

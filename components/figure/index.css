@@ -55,9 +55,3 @@
   top: 0;
   object-fit: cover;
 }
-
-.Figure-caption {
-  display: block;
-  margin-top: var(--space);
-  color: var(--gray);
-}

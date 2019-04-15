@@ -43,7 +43,7 @@ function ui (state, emitter, app) {
           window.scrollTo(window.scrollX, from)
           window.setTimeout(function () {
             // smoothly scroll element into view when everything has settled
-            el.scrollIntoView({behavior: 'smooth', block: 'start'})
+            el.scrollIntoView({block: 'start'})
           }, 0)
         }, 0)
       }

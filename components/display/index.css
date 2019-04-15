@@ -34,6 +34,7 @@
   color: var(--link-color);
   text-decoration: none;
   padding: 0.02em 0.12em 0em;
+  margin: 0 -0.12em;
 }
 
 .Display-link:hover {
