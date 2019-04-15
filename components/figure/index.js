@@ -21,7 +21,7 @@ Figure.id = function (img) {
 class InteractiveFigure extends Component {
   constructor (id, state, emit, opts) {
     super(id)
-    Object.assign(this, opts)
+    Object.assign(this, opts, { id })
     this.createElement = createElement
   }
 
