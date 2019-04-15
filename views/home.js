@@ -2,6 +2,7 @@ var html = require('choo/html')
 var {asText} = require('prismic-richtext')
 var view = require('../components/view')
 var {i18n} = require('../components/base')
+var Header = require('../components/view/header')
 var Figure = require('../components/figure')
 var Takeover = require('../components/takeover')
 
@@ -65,7 +66,8 @@ function home (state, emit) {
       left: event.pageX - scrollX,
       top: event.pageY - scrollY
     }
-    state.cache(Takeover, Takeover.id()).open(target.pathname, coordinates)
+    var header = new Header().render(target, true)
+    state.cache(Takeover, Takeover.id()).open(target.pathname, coordinates, header)
     event.preventDefault()
   }
 

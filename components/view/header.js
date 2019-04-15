@@ -17,13 +17,11 @@ module.exports = class Header extends Component {
     return route !== this.route
   }
 
-  createElement (route) {
+  createElement (route, fixed) {
     this.route = route
     var self = this
-    var isHomepage = route === '/'
-
     return html`
-      <div class="View-header" id="${this.id}">
+      <div class="View-header ${fixed ? 'is-fixed' : ''}" id="${this.id}">
         <a href="/" class="View-home" onclick=${top}>
           <span class="u-hiddenVisually">code and conspire</span>
           ${logo()}
@@ -31,6 +29,7 @@ module.exports = class Header extends Component {
 
         <nav>
           <ul class="View-nav">
+            <li><a class="View-link" href="/">${text`Index`}</a></li>
             <li><a class="View-link" href="/manifesto">${text`Manifesto`}</a></li>
             <li><a class="View-link" href="/about">${text`About`}</a></li>
           </ul>
@@ -46,7 +45,8 @@ module.exports = class Header extends Component {
       return function (event) {
         if (self.state.ui.inTransition) return event.preventDefault()
         var href = event.target.pathname
-        self.state.cache(Takeover, Takeover.id()).open(href, event.target.getBoundingClientRect())
+        var next = self.createElement(href, true)
+        self.state.cache(Takeover, Takeover.id()).open(href, event.target.getBoundingClientRect(), next)
         window.requestAnimationFrame(function () {
           self.render(href)
         })

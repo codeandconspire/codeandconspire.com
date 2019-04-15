@@ -26,7 +26,7 @@
   --font-line-height: 1.25;
   --font-letter-spacing: -0.01em;
 
-  --font-size: 15px;
+  --font-size: 16px;
   --font-size-heading: 32px;
   --font-size-heading-intro: 28px;
   --font-size-heading-footer: 25px;
@@ -35,7 +35,7 @@
 @media (min-width: 350px) {
   :root {
     --space: 4px;
-    --font-size: 16px;
+    --font-size: 18px;
     --font-size-heading: 38px;
     --font-size-heading-intro: 44px;
     --font-size-heading-intro-line-height: 1.1;

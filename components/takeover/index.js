@@ -17,7 +17,7 @@ module.exports = class Takeover extends Component {
     return false
   }
 
-  open (href, coordinates) {
+  open (href, coordinates, header) {
     var self = this
     var el = this.element
 
@@ -33,7 +33,7 @@ module.exports = class Takeover extends Component {
       var className = 'Takeover-circle'
       if (innerHeight > innerWidth) className += ' Takeover-circle--portrait'
       if (isSlow) className += ' Takeover-circle--slow'
-      var circle = html`<div class="${className}" style="${style}"></div>`
+      var circle = html`<div>${header}<div class="${className}" style="${style}"></div></div>`
 
       circle.addEventListener('animationend', function onanimationend () {
         circle.removeEventListener('animationend', onanimationend)

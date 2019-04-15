@@ -46,11 +46,31 @@
   flex: 0 0 auto;
   display: flex;
   width: 100%;
-  padding: calc(var(--space) * 4);
+  padding: 0 calc(var(--space) * 4);
   padding-top: calc(var(--space) * 6); /* 1 */
   position: absolute;
   z-index: 2;
   user-select: none;
+}
+
+.View-header.is-fixed {
+  position: fixed;
+  opacity: 0;
+  will-change: transform, opacity;
+  transform: translateY(1rem);
+  animation: View-header--fadeIn 350ms 200ms forwards var(--slide-in), View-header--slideIn 350ms 200ms forwards var(--slide-in);
+}
+
+@keyframes View-header--fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes View-header--slideIn {
+  to {
+    transform: translateY(0rem);
+  }
 }
 
 .View-home {
