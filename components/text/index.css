@@ -52,6 +52,7 @@
 }
 
 .Text--adaptive a {
+  font-weight: inherit;
   color: inherit;
   border: 0;
 }

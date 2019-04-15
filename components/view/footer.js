@@ -32,7 +32,7 @@ module.exports = class Footer extends Component {
           </div>
         </div>
 
-        <div class="Text Text--adaptive u-spaceB8 u-spaceT4 u-textBold u-inlineBlock">
+        <div class="Text Text--adaptive u-spaceB8 u-spaceT4 u-inlineBlock">
           <p class="u-spaceT4">
             <a href="https://goo.gl/maps/TEWDAjA4sds" target="_blank" rel="noopener noreferrer">Svartmangatan 16, Stockholm</a>
             <div class="u-spaceV1">

@@ -33,7 +33,7 @@
   font-weight: bold;
   color: var(--link-color);
   text-decoration: none;
-  padding: 0.06em 0.12em 0.04em;
+  padding: 0.02em 0.12em 0em;
 }
 
 .Display-link:hover {

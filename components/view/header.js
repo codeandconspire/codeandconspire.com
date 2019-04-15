@@ -30,13 +30,13 @@ module.exports = class Header extends Component {
         </a>
 
         ${!isHomepage ? html`
-          <div class="View-navWrap">
-            <nav>
-              <a class="View-nav" href="/" onclick=${explode('white')}>${text`Back`}</a>
-            </nav>
-          </div>
+          <nav>
+            <a class="View-nav is-fixed" href="/" onclick=${explode('white')}>${text`Back`}</a>
+          </nav>
         ` : html`
-          <div class="View-navWrap"></div>
+          <nav>
+            <a class="View-nav" href="/about" onclick=${explode('white')}>${text`About us`}</a>
+          </nav>
         `}
       </div>
     `
