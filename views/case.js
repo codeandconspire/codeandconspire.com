@@ -76,6 +76,20 @@ function caseView (state, emit) {
                   <div class="Text u-spaceT3">${asElement(item.text)}</div>
                 </div>
               `)}
+              <div class="View-cell u-size1of2 u-md-size1of3 u-spaceB6">
+                <div class="Figure">
+                  <div style="--Figure-aspect: 133.67%;" class="Figure-container">
+                    <div class="Figure-body">
+                      <div class="Text Text--light u-textCenter Text--adaptive">
+                        <p><strong>${text`Want to work with us?`}</strong><br>${text`Let us know!`}</p>
+                        <p class="u-spaceT4">
+                          <a href="mailto:hi@codeandconspire.com">Send an email</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </div>
             </div>
           `
           case 'image': return html`

@@ -40,7 +40,6 @@
   font-weight: bold;
   color: var(--link-color);
   text-decoration: none;
-  display: inline-block;
 }
 
 .Text a:hover {
@@ -49,6 +48,11 @@
   padding: 0.08em 0.12em 0;
   margin: -0.08em -0.12em 0;
   border: 0;
+}
+
+.Text--light a:hover {
+  color: var(--color);
+  background: #fff;
 }
 
 .Text--adaptive a {
