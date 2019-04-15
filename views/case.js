@@ -57,7 +57,7 @@ function caseView (state, emit) {
           `)}
         </section>
       </div>
-      ${!state.ui.isPartial && doc.data.body.map((slice) => {
+      ${!state.ui.isPartial && doc.data.body ? doc.data.body.map((slice) => {
         switch (slice.slice_type) {
           case 'gallery': return html`
             <div class="View-grid">
@@ -157,7 +157,7 @@ function caseView (state, emit) {
           }
           default: return null
         }
-      })}
+      }) : null}
     </main>
   `
 }
@@ -237,7 +237,7 @@ function meta (state) {
   }
   return {
     'og:image': doc.data.image.url ? doc.data.image.url : '/share.png',
-    title: (doc.data.label || asText(doc.data.title)).trim(),
+    title: doc.data.label.trim(),
     description: doc.data.description[0].text
   }
 }
