@@ -22,13 +22,13 @@ module.exports = class Footer extends Component {
           <a class="Display-link" href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
         </h2>
 
-        <div class="Text Text--adaptive u-spaceT1">
+        <div class="Text Text--adaptive">
           <p>
             Svartmangatan 16 <br> 111 29 Stockholm, Sweden
-            <div class="u-spaceT2"><a href="tel:+46735819750">+46 735 819 750</a></div>
+            <div class="u-spaceT4"><a href="tel:+46735819750">+46 735 819 750</a></div>
             <a href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
             <br>
-            <div class="u-spaceT5">
+            <div class="u-spaceT4">
               <div class="u-inlineBlock u-spaceR2"><a href="https://www.instagram.com/codeandconspire/">Instagram</a></div>
               <div class="u-inlineBlock u-spaceR2"><a href="https://twitter.com/codeandconspire/">Twitter</a></div>
               <div class="u-inlineBlock u-spaceR2"><a href="https://github.com/codeandconspire/">Github</a></div>

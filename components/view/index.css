@@ -128,7 +128,7 @@
 .View-nav {
   list-style: none;
   display: flex;
-  margin: 0.2em 0 0 0;
+  margin: 0.05em 0 0 0;
   padding: 0;
 }
 
@@ -151,9 +151,10 @@
 .View-footer {
   display: flex;
   min-height: 90vh;
+  padding-top: 3rem;
+  padding-bottom: 10vh;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 10vh;
 }
 
 .View-contact {

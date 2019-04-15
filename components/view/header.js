@@ -20,6 +20,7 @@ module.exports = class Header extends Component {
   createElement (route, fixed) {
     this.route = route
     var self = this
+
     return html`
       <div class="View-header ${fixed ? 'is-fixed' : ''}" id="${this.id}">
         <a href="/" class="View-home" onclick=${top}>
@@ -29,7 +30,6 @@ module.exports = class Header extends Component {
 
         <nav>
           <ul class="View-nav">
-            <li><a class="View-link" href="/">${text`Index`}</a></li>
             <li><a class="View-link" href="/manifesto">${text`Manifesto`}</a></li>
             <li><a class="View-link" href="/about">${text`About`}</a></li>
           </ul>
