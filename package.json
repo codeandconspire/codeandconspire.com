@@ -20,7 +20,7 @@
     ]
   },
   "now": {
-    "alias": "next.codeandconspire.com",
+    "alias": "www.codeandconspire.com",
     "env": {
       "NODE_ENV": "production",
       "CLOUDINARY_KEY": "@cloudinary-key",
