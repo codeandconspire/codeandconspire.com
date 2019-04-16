@@ -1,6 +1,5 @@
 if (!process.env.NOW) require('dotenv/config')
 
-var url = require('url')
 var jalla = require('jalla')
 var body = require('koa-body')
 var dedent = require('dedent')
@@ -9,8 +8,9 @@ var { get, post } = require('koa-route')
 var Prismic = require('prismic-javascript')
 var purge = require('./lib/purge')
 var imageproxy = require('./lib/cloudinary-proxy')
+var {resolve} = require('./components/base')
 
-var PRISMIC_ENDPOINT = 'https://codeandconspire.cdn.prismic.io/api/v2'
+var REPOSITORY = 'https://codeandconspire.cdn.prismic.io/api/v2'
 
 var app = jalla('index.js', {
   sw: 'sw.js',
@@ -22,7 +22,7 @@ app.use(get('/robots.txt', function (ctx, next) {
   ctx.type = 'text/plain'
   ctx.body = dedent`
     User-agent: *
-    Disallow: /
+    Disallow: ${app.env === 'production' ? '' : '/'}
   `
 }))
 
@@ -42,48 +42,52 @@ app.use(post('/prismic-hook', compose([body(), async function (ctx) {
   return new Promise(function (resolve, reject) {
     purge(function (err, response) {
       if (err) return reject(err)
+      ctx.type = 'application/json'
+      ctx.body = {}
       resolve()
     })
   })
 }])))
 
+app.use(get('/prismic-preview', async function (ctx) {
+  var token = ctx.query.token
+  var api = await Prismic.api(REPOSITORY, { req: ctx.req })
+  var href = await api.previewSession(token, resolve, '/')
+  var expires = app.env === 'development'
+    ? new Date(Date.now() + (1000 * 60 * 60 * 12))
+    : new Date(Date.now() + (1000 * 60 * 30))
+
+  ctx.set('Cache-Control', 'no-cache, private, max-age=0')
+  ctx.cookies.set(Prismic.previewCookie, token, {
+    expires: expires,
+    httpOnly: false,
+    path: '/'
+  })
+  ctx.redirect(href)
+}))
+
 app.use(function (ctx, next) {
   if (!ctx.accepts('html')) return next()
+  ctx.state.repository = REPOSITORY
+  ctx.state.origin = ctx.origin
+  return next()
+})
 
+app.use(function (ctx, next) {
+  if (!ctx.accepts('html')) return next()
   var previewCookie = ctx.cookies.get(Prismic.previewCookie)
   if (previewCookie) {
     ctx.state.ref = previewCookie
-    ctx.set('Cache-Control', 'max-age=0')
+    ctx.set('Cache-Control', 'no-cache, private, max-age=0')
   } else {
     ctx.state.ref = null
-  }
-
-  var allowCache = process.env.NODE_ENV !== 'development'
-  if (!previewCookie && allowCache && ctx.path !== '/prismic-preview') {
-    ctx.set('Cache-Control', `s-maxage=${60 * 60 * 24 * 7}, max-age=${60 * 10}`)
+    if (app.env !== 'development') {
+      ctx.set('Cache-Control', `s-maxage=${60 * 60 * 24 * 30}, max-age=0`)
+    }
   }
 
   return next()
 })
-
-app.use(get('/prismic-preview', async function (ctx) {
-  var host = process.env.NOW_URL && url.parse(process.env.NOW_URL).host
-  if (host && ctx.host !== host) {
-    return ctx.redirect(url.resolve(process.env.NOW_URL, ctx.url))
-  }
-
-  var token = ctx.query.token
-  var api = await Prismic.api(PRISMIC_ENDPOINT, {req: ctx.req})
-  var href = await api.previewSession(token, resolvePreview, '/')
-  var expires = process.env.NODE_ENV === 'development'
-    ? new Date(Date.now() + (1000 * 60 * 60 * 12))
-    : new Date(Date.now() + (1000 * 60 * 30))
-
-  ctx.set('Cache-Control', 'max-age=0')
-  ctx.cookies.set(Prismic.previewCookie, token, {expires: expires, path: '/'})
-
-  ctx.redirect(href)
-}))
 
 if (process.env.NOW && process.env.NODE_ENV === 'production') {
   purge(['/sw.js'], function (err) {
@@ -92,15 +96,6 @@ if (process.env.NOW && process.env.NODE_ENV === 'production') {
   })
 } else {
   start()
-}
-
-// resolve document preview url
-// obj -> str
-function resolvePreview (doc) {
-  switch (doc.type) {
-    case 'homepage': return '/'
-    default: throw new Error('Preview not available')
-  }
 }
 
 // start server

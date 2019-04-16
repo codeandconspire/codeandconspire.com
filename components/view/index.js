@@ -1,13 +1,19 @@
 var html = require('choo/html')
 var error = require('./error')
+var {i18n} = require('../base')
 var Header = require('./header')
 var Footer = require('./footer')
 var Takeover = require('../takeover')
-var {i18n} = require('../base')
+var PrismicToolbar = require('../prismic-toolbar')
 
 var text = i18n('./lang.json')
 
 var DEFAULT_TITLE = 'code and conspire'
+var MENU = [
+  ['homepage'],
+  ['case', 'manifesto'],
+  ['case', 'about']
+]
 
 module.exports = createView
 
@@ -33,16 +39,10 @@ function createView (view, meta) {
       })
     }
 
-    prefetch('XK3lsREAAFjd6pAM')() // Home
-    prefetch('XK4YgxEAABX_62qB')() // Manifesto
-    prefetch('XK4X5hEAACzt62hY')() // About
-
-    function prefetch (id) {
-      return function () {
-        var doc = state.documents.items.find((item) => item.id === id)
-        if (!doc) emit('doc:fetch', {id}, {silent: true})
-      }
-    }
+    MENU.forEach(function ([type, uid]) {
+      if (uid) state.prismic.getByUID(type, uid, {prefetch: true})
+      else state.prismic.getSingle(type, {prefetch: true})
+    })
 
     return html`
       <body class="View">
@@ -50,6 +50,7 @@ function createView (view, meta) {
         ${children}
         ${state.cache(Footer, 'footer').render()}
         ${state.cache(Takeover, Takeover.id()).render()}
+        ${state.cache(PrismicToolbar, 'prismic-toolbar').placeholder(state.href)}
       </body>
     `
   }

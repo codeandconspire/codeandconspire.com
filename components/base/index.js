@@ -43,6 +43,17 @@ function inview ([el, box, cb]) {
   el.style.setProperty('--inview', fraction.toFixed(3))
 }
 
+// resolve document href
+// obj -> str
+exports.resolve = resolve
+function resolve (doc) {
+  switch (doc.type) {
+    case 'homepage': return '/'
+    case 'case': return `/${doc.uid}`
+    default: return null
+  }
+}
+
 // expose relative mouse coordinates as custom variables
 // HTMLElement -> void
 exports.mousemove = mousemove

@@ -1,9 +1,12 @@
+var Header = require('../components/view/header')
+
 module.exports = ui
 
 function ui (state, emitter, app) {
   state.ui = {
     isFirst: true,
     isPartial: false,
+    isLoading: false,
     inTransition: false
   }
 
@@ -20,8 +23,8 @@ function ui (state, emitter, app) {
         params: matched.params,
         ui: Object.assign({}, state.ui, {isPartial: true})
       })
-      // pluck out header component and pre-rerender with next route
-      app._cache.get('header').render(matched.route)
+      // pluck out header component from cache and pre-rerender with next route
+      state.cache(Header, 'header').render(matched.route)
       return matched.cb(_state, emitter.emit.bind(emitter))
     })
   })
@@ -49,4 +52,19 @@ function ui (state, emitter, app) {
       }
     })
   })
+
+  var requests = 0
+  emitter.on('prismic:request', start)
+  emitter.on('prismic:response', end)
+  emitter.on('prismic:error', end)
+
+  function start () {
+    requests++
+    state.ui.isLoading = true
+  }
+
+  function end () {
+    requests--
+    state.ui.isLoading = requests > 0
+  }
 }
