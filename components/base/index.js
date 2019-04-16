@@ -234,7 +234,7 @@ function srcset (uri, sizes, opts = {}) {
   if (!/q_/.test(transforms)) transforms += ',q_auto'
 
   // trim prismic domain from uri
-  var parts = uri.split('bomaglobal.cdn.prismic.io/bomaglobal/')
+  var parts = uri.split('codeandconspire.cdn.prismic.io/codeandconspire/')
   uri = parts[parts.length - 1]
 
   return sizes.map(function (size) {

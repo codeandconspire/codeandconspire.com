@@ -27,10 +27,10 @@ function caseView (state, emit) {
 
       return html`
         <main class="View-container View-container--nudge View-container--fill">
-          <h1 class="Display Display--1 u-spaceIntro u-spaceB8 ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title).trim()}</h1>
+          <h1 class="Display Display--1 u-spaceIntro u-spaceB8 ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title).trim()}</h1>
           <div class="View-reverse View-reverse--md">
             ${doc.data.image.url ? html`
-              <div class="u-spaceV4 ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 200ms;' : ''}">
+              <div class="u-spaceT4 u-spaceB4 ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 200ms;' : ''}">
                 ${state.cache(Figure, `${Figure.id(doc.data.image)}-${state.ui.isPartial}`).render(doc.data.image)}
               </div>
             ` : null}
@@ -46,14 +46,14 @@ function caseView (state, emit) {
 
   return html`
     <main class="View-container View-container--nudge">
-      <h1 class="Display Display--1 u-spaceIntro u-spaceB8 ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title).trim()}</h1>
+      <h1 class="Display Display--1 u-spaceIntro u-spaceB8 ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 150ms;' : ''}">${asText(doc.data.title).trim()}</h1>
       <div class="View-reverse View-reverse--md">
         ${doc.data.image.url ? html`
-          <div class="u-spaceV4 ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 225ms;' : ''}">
+          <div class="u-spaceT4 u-spaceB4 ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 225ms;' : ''}">
             ${state.cache(Figure, `${Figure.id(doc.data.image)}-${state.ui.isPartial}`).render(doc.data.image)}
           </div>
         ` : null}
-        <section class="View-grid ${state.ui.isPartial ? 'u-slideInY' : ''}" style="${state.ui.isPartial ? 'animation-delay: 175ms;' : ''}">
+        <section class="View-grid ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 175ms;' : ''}">
           ${doc.data.introduction.map((item, index, list) => html`
             <div class="View-cell u-md-size1of${list.length > 3 ? 2 : list.length}">
               ${state.cache(Topic, [doc.id, Topic.id(item), state.ui.isPartial].join('-')).render(item)}
@@ -108,7 +108,7 @@ function caseView (state, emit) {
                   <div class="View-cell u-md-size1of2 u-lg-size1of3"></div>
                 ` : null}
                 <div class="View-cell u-md-size1of2 u-lg-size2of3">
-                  <div class="Text u-spaceV4">
+                  <div class="Text u-spaceT4 u-spaceB4">
                     ${asElement(slice.primary.body)}
                   </div>
                 </div>
@@ -117,7 +117,7 @@ function caseView (state, emit) {
           `
           case 'heading': return html`
             <div class="View-divider">
-              <div class="View-grid u-spaceV8">
+              <div class="View-grid u-spaceT8 u-spaceB8">
                 <div class="View-cell u-md-size1of2 u-lg-size1of3 u-spaceB6">
                   <div class="Text">
                     <h2>${asText(slice.primary.heading).trim()}</h2>

@@ -1,28 +1,15 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 var {mousemove, memo, srcset} = require('../base')
+var imagesLoaded = require('imagesloaded')
 
-module.exports = Figure
-
-// wrapper class that only instantiates a Component if needed
-// (str, obj, fn, opts) -> obj
-function Figure (id, state, emit, opts) {
-  opts = opts || {}
-  if (opts.interactive) return new InteractiveFigure(id, state, emit, opts)
-  Object.assign(this, opts, { id })
-}
-
-Figure.prototype.render = createElement
-
-Figure.id = function (img) {
-  return img.url.match(/.+\/(.+?)\.(?:jpg|jpeg|png|svg|gif|webp)$/)[1]
-}
-
-class InteractiveFigure extends Component {
+module.exports = class Header extends Component {
   constructor (id, state, emit, opts) {
     super(id)
     Object.assign(this, opts, { id })
-    this.createElement = createElement
+    this.state = state
+    this.interactive = opts && opts.interactive
+    this.emit = emit
   }
 
   static id (img) {
@@ -30,26 +17,36 @@ class InteractiveFigure extends Component {
   }
 
   load (element) {
-    this.unload = mousemove(element)
+    var self = this
+    if (this.interactive) {
+      this.unload = mousemove(element)
+    }
+
+    imagesLoaded(element, function () {
+      self.loaded = true
+      window.requestAnimationFrame(function () {
+        element.classList.add('is-loaded')
+      })
+    })
   }
 
   update () {
     return false
   }
-}
 
-function createElement (img) {
-  var alt = img.alternative
-  return html`
-    <figure class="Figure" id="${this.id}">
-      <div class="Figure-container ${alt ? 'Figure-container--alternative' : ''}" style="--Figure-aspect: ${(img.dimensions.height / img.dimensions.width * 100).toFixed(2)}%; ${alt ? `--Figure-aspect-alternative: ${(alt.dimensions.height / alt.dimensions.width * 100).toFixed(2)}%` : ''}">
-        ${img.url ? getImage(img) : null}
-      </div>
-      ${img.alt ? html`
-        <figcaption class="u-spaceT2">${img.alt}</figcaption>
-      ` : null}
-    </figure>
-  `
+  createElement (img) {
+    var alt = img.alternative
+    return html`
+      <figure class="Figure ${this.loaded ? 'is-loaded' : ''}" id="${this.id}">
+        <div class="Figure-container ${alt ? 'Figure-container--alternative' : ''}" style="--Figure-aspect: ${(img.dimensions.height / img.dimensions.width * 100).toFixed(2)}%; ${alt ? `--Figure-aspect-alternative: ${(alt.dimensions.height / alt.dimensions.width * 100).toFixed(2)}%` : ''}">
+          ${img.url ? getImage(img) : null}
+        </div>
+        ${img.alt ? html`
+          <figcaption class="u-spaceT2">${img.alt}</figcaption>
+        ` : null}
+      </figure>
+    `
+  }
 }
 
 function getImage (props) {
@@ -66,8 +63,11 @@ function getImage (props) {
     sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
   }
 
+  if (!props.url) {
+    return null
+  }
+
   var attrs = memo(function (url, sizes) {
-    if (!url) return null
     var sources = srcset(props.url, sizes)
     return Object.assign({
       sizes: viewport,
@@ -78,13 +78,21 @@ function getImage (props) {
   }, [props.url, sizes])
 
   if (!props.alternative) {
-    return html`<img class="Figure-image" ${attrs}>`
+    return html`
+      <div>
+        <img class="Figure-load js-load" width="${attrs.width}" height="${attrs.height}" src="/media/fetch/q_0,w_20,f_png/${props.url}">
+        <img class="Figure-image" ${attrs}>
+      </div>
+    `
   }
 
   return html`
-    <picture>
-      <source srcset="${attrs.srcset}" media="(min-width: 600px)" sizes="${viewport}">
-      <img class="Figure-image" alt="${attrs.alt}" srcset="${srcset(props.alternative.url, [300, 600, 900])}" sizes="${viewport}" width="${attrs.width}" height="${attrs.height}" src="${attrs.src}">
-    </picture>
+    <div>
+      <img class="Figure-load js-load" width="${attrs.width}" height="${attrs.height}" src="/media/fetch/q_0,w_20,f_png/${props.url}">
+      <picture>
+        <source srcset="${attrs.srcset}" media="(min-width: 600px)" sizes="${viewport}">
+        <img class="Figure-image" alt="${attrs.alt}" srcset="${srcset(props.alternative.url, sizes)}" sizes="${viewport}" width="${attrs.width}" height="${attrs.height}" src="${attrs.src}">
+      </picture>
+    </div>
   `
 }

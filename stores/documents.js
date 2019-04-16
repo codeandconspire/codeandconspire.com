@@ -1,5 +1,6 @@
 var assert = require('assert')
 var html = require('choo/html')
+// var Figure = require('../components/figure')
 var {getApi, Predicates} = require('prismic-javascript')
 
 module.exports = documents
