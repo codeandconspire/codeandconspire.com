@@ -124,6 +124,18 @@ function caseView (state, emit) {
                         <h2>${asText(slice.primary.heading).trim()}</h2>
                       </div>
                     </div>
+                    <div class="View-cell u-md-size1of2 u-lg-size2of3">
+                      <div class="View-grid">
+                        ${slice.items.map((item) => html`
+                          <div class="View-cell u-lg-size1of2 u-spaceB6">
+                            <div class="Text">
+                              ${asElement(item.body)}
+                            </div>
+                          </div>
+                        `)}
+                      </div>
+                    </div>
+                  </div>
                 ` : html`
                   <div class="View-grid u-spaceT8 u-spaceB8">
                     ${slice.items.map((item) => html`
