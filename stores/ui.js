@@ -33,23 +33,8 @@ function ui (state, emitter, app) {
   emitter.on('navigate', function () {
     state.ui.inTransition = false
     state.ui.isFirst = false
-
     window.requestAnimationFrame(function () {
-      var el = document.getElementById(window.location.hash.substr(1))
-
-      if (!el) {
-        window.scrollTo(0, 0)
-      } else {
-        let from = window.scrollY
-        window.setTimeout(function () {
-          // reset scroll to where it was before navigate
-          window.scrollTo(window.scrollX, from)
-          window.setTimeout(function () {
-            // smoothly scroll element into view when everything has settled
-            el.scrollIntoView({block: 'start'})
-          }, 0)
-        }, 0)
-      }
+      window.scrollTo(0, 0)
     })
   })
 
