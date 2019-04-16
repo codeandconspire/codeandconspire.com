@@ -1,6 +1,14 @@
 var html = require('choo/html')
 var {i18n} = require('../base')
 
+var DEBUG = process.env.NODE_ENV === 'development'
+if (typeof window !== 'undefined') {
+  try {
+    let flag = window.localStorage.DEBUG
+    DEBUG = DEBUG || (flag && JSON.parse(flag))
+  } catch (err) {}
+}
+
 var text = i18n()
 
 module.exports = error
@@ -23,7 +31,7 @@ function error (err) {
             <a href="/">${text`the homepage`}</a>.
           </p>
         `}
-        ${process.env.NODE_ENV === 'development' ? html`
+        ${DEBUG ? html`
           <div>
             <pre>${err.name}: ${err.message}</pre>
             <pre>${err.stack}</pre>
