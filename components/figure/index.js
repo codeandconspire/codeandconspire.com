@@ -3,7 +3,7 @@ var Component = require('choo/component')
 var {mousemove, memo, srcset} = require('../base')
 var imagesLoaded = require('imagesloaded')
 
-module.exports = class Header extends Component {
+module.exports = class Figure extends Component {
   constructor (id, state, emit, opts) {
     super(id)
     Object.assign(this, opts, { id })
@@ -14,6 +14,12 @@ module.exports = class Header extends Component {
 
   static id (img) {
     return img.url.match(/.+\/(.+?)\.(?:jpg|jpeg|png|svg|gif|webp)$/)[1]
+  }
+
+  static prefetch (props) {
+    if (typeof window === 'undefined') return
+    var img = new window.Image()
+    img.src = `/media/fetch/q_0,w_20,f_png/${props.url}`
   }
 
   load (element) {

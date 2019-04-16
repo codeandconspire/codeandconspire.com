@@ -30,8 +30,9 @@ function home (state, emit) {
               <h2 class="u-spaceB3">${text`Selected cases`}</h2>
             </div>
             ${doc.data.featured_cases.map(function (props, i) {
-              setTimeout(prefetch(props.case.id), (i + 1) * 500)
-
+              state.prismic.getByUID('case', props.case.uid, {prefetch: true}, function (err, doc) {
+                if (!err && doc) Figure.prefetch(doc.data.image)
+              })
               return html`
                 <div class="View-cell u-md-size1of2 u-spaceT6 ${animate ? 'u-slideIn' : ''}" style="${animate ? `animation-delay: ${delay(i)}ms;` : ''}">
                   <a href="${resolve(props.case)}" class="Figure-outer" onclick=${explode} onmouseover=${prefetch(props.case.id)} ontouchstart=${prefetch(props.case.id)}>
