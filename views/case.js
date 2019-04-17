@@ -230,8 +230,10 @@ function meta (state) {
       description: doc.data.description[0].text
     }
 
-    if (doc.data.image.url) {
-      let { url, dimensions: { width, height } } = doc.data.image
+    var image = doc.data.featured_image
+    if (!image || !image.url) image = doc.data.image
+    if (image.url) {
+      let { url, dimensions: { width, height } } = image
       props['og:image:width'] = 1024
       props['og:image:height'] = Math.floor(1024 * (height / width))
       props['og:image'] = `/media/fetch/c_fill,f_auto,q_auto,w_1024/${url}`
