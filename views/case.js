@@ -225,10 +225,20 @@ function meta (state) {
     if (err) throw err
     if (!doc) return {title: text`Loading`}
 
-    return {
-      'og:image': doc.data.image.url ? doc.data.image.url : '/share.png',
+    var props = {
       title: doc.data.label.trim(),
       description: doc.data.description[0].text
     }
+
+    if (doc.data.image.url) {
+      let { url, dimensions: { width, height } } = doc.data.image
+      props['og:image:width'] = 1024
+      props['og:image:height'] = Math.floor(1024 * (height / width))
+      props['og:image'] = `/media/fetch/c_fill,f_auto,q_auto,w_1024/${url}`
+    } else {
+      props['og:image'] = '/share.png'
+    }
+
+    return props
   })
 }
