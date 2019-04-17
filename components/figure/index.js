@@ -17,7 +17,7 @@ module.exports = class Figure extends Component {
   }
 
   static prefetch (props) {
-    if (typeof window === 'undefined') return
+    if (!props.url || typeof window === 'undefined') return
     var img = new window.Image()
     img.src = `/media/fetch/q_0,w_20,f_png/${props.url}`
   }
@@ -56,6 +56,16 @@ module.exports = class Figure extends Component {
 }
 
 function getImage (props, size) {
+  if (/\.gifv?$/.test(props.url)) {
+    let { alt, url, dimensions: { width, height } } = props
+    return html`
+      <div>
+        <img class="Figure-load js-load" width="${width}" height="${height}" src="/media/fetch/q_0,w_20,f_png/${url}">
+        <img class="Figure-image" alt="${alt}" width="${width}" height="${height}" src="${url}">
+      </div>
+    `
+  }
+
   var viewport = '100vw'
   var sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
 
