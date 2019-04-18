@@ -49,7 +49,7 @@ module.exports = class Header extends Component {
     return html`
       <figure class="Figure ${this.loaded ? 'is-loaded' : ''}" id="${this.id}">
         <div class="Figure-container ${alt ? 'Figure-container--alternative' : ''}" style="--Figure-aspect: ${(img.dimensions.height / img.dimensions.width * 100).toFixed(2)}%; ${alt ? `--Figure-aspect-alternative: ${(alt.dimensions.height / alt.dimensions.width * 100).toFixed(2)}%` : ''}">
-          ${img.url ? getImage(img) : null}
+          ${img.url ? getImage(img, this.size) : null}
         </div>
         ${caption ? html`
           <figcaption class="u-spaceT2 u-spaceB2">${caption}</figcaption>
@@ -59,16 +59,16 @@ module.exports = class Header extends Component {
   }
 }
 
-function getImage (props) {
+function getImage (props, size) {
   var viewport = '100vw'
   var sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
 
-  if (this.size === 'half') {
+  if (size === 'half') {
     viewport = '(min-midth: 600px) 50vw, 100vw'
     sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
   }
 
-  if (this.size === 'third') {
+  if (size === 'third') {
     viewport = '(min-midth: 600px) 30vw, 50vw'
     sizes = [640, 750, 1125, 1440, [2880, 'q_80'], [3840, 'q_70']]
   }
