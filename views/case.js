@@ -69,7 +69,7 @@ function caseView (state, emit) {
               <div class="View-grid">
                 ${slice.items.map((item, index, list) => html`
                   <div class="View-cell u-md-size1of2 u-spaceB4">
-                    ${state.cache(Figure, Figure.id(item.image), {size: 'half'}).render(item.image)}
+                    ${state.cache(Figure, Figure.id(item.image), {size: 'half'}).render(item.image, item.caption)}
                   </div>
                 `)}
               </div>
@@ -100,7 +100,7 @@ function caseView (state, emit) {
             `
             case 'image': return html`
               <div class="u-spaceB4">
-                ${state.cache(Figure, Figure.id(slice.primary.image)).render(slice.primary.image)}
+                ${state.cache(Figure, Figure.id(slice.primary.image)).render(slice.primary.image, slice.primary.caption)}
               </div>
             `
             case 'text': return html`
