@@ -37,7 +37,8 @@ function home (state, emit) {
                 <div class="View-cell u-md-size1of2 u-spaceT6 ${animate ? 'u-slideIn' : ''}" style="${animate ? `animation-delay: ${delay(i)}ms;` : ''}">
                   <a href="${resolve(props.case)}" class="Figure-outer" onclick=${explode} onmouseover=${prefetch(props.case.id)} ontouchstart=${prefetch(props.case.id)}>
                     ${state.cache(Figure, `${props.case.uid}-${Figure.id(props.image)}:${state.ui.isPartial}`, {interactive: true, size: 'half'}).render(props.image)}
-                    <h3 class="u-spaceT2">${asText(props.case.data.title)}</h3>
+                    <h3 class="u-spaceT2 u-textBold">${props.heading ? props.heading : asText(props.case.data.title)}</h3>
+                    <p>${props.subline ? props.subline : asText(props.case.data.description)}</p>
                   </a>
                 </div>
               `

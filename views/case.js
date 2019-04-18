@@ -53,13 +53,15 @@ function caseView (state, emit) {
               ${state.cache(Figure, `${Figure.id(doc.data.image)}-${state.ui.isPartial}`).render(doc.data.image)}
             </div>
           ` : null}
-          <section class="View-grid ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 175ms;' : ''}">
-            ${doc.data.introduction.map((item, index, list) => html`
-              <div class="View-cell u-md-size1of${list.length > 3 ? 2 : list.length}">
-                ${state.cache(Topic, [doc.id, Topic.id(item), state.ui.isPartial].join('-')).render(item)}
-              </div>
-            `)}
-          </section>
+          <div class="${doc.data.image.url ? 'View-divider--toMd' : ''}">
+            <section class="View-grid ${state.ui.isPartial ? 'u-slideIn' : ''}" style="${state.ui.isPartial ? 'animation-delay: 175ms;' : ''}">
+              ${doc.data.introduction.map((item, index, list) => html`
+                <div class="View-cell u-md-size1of${list.length > 3 ? 2 : list.length}">
+                  ${state.cache(Topic, [doc.id, Topic.id(item), state.ui.isPartial].join('-')).render(item)}
+                </div>
+              `)}
+            </section>
+          </div>
         </div>
         ${!state.ui.isPartial && doc.data.body ? doc.data.body.map((slice) => {
           switch (slice.slice_type) {

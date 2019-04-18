@@ -52,7 +52,7 @@ module.exports = class Header extends Component {
           ${img.url ? getImage(img) : null}
         </div>
         ${caption ? html`
-          <figcaption class="u-spaceT2">${caption}</figcaption>
+          <figcaption class="u-spaceT2 u-spaceB2">${caption}</figcaption>
         ` : null}
       </figure>
     `

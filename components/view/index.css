@@ -172,6 +172,13 @@
   margin: calc(var(--space) * 20) 0;
 }
 
+
+@media (max-width: 599px) {
+  .View-divider--toMd {
+    margin: calc(var(--space) * 20) 0;
+  }
+}
+
 .View-divder--sm {
   margin: calc(var(--space) * 15) 0;
 }
