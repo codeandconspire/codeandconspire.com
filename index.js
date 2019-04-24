@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
 app.use(require('choo-service-worker')('/sw.js'))
 app.use(require('./stores/prismic')({ repository: REPOSITORY, middleware }))
 app.use(require('choo-meta')({ origin: app.state.origin }))
+app.use(require('./stores/navigation'))
 app.use(require('./stores/ui'))
 
 app.route('/', require('./views/home'))
