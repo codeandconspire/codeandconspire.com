@@ -12,7 +12,7 @@ module.exports = class Header extends Component {
   }
 
   static id (img) {
-    return img.url.match(/.+\/(.+?)\.(?:jpg|jpeg|png|svg|gif|webp)$/)[1]
+    return img.url.match(/.+\/(.+?)\.(?:jpg|jpeg|png|svg|gif|webp)(?:\?|$)/)[1]
   }
 
   static prefetch (props) {
