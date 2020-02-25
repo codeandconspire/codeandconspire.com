@@ -24,7 +24,7 @@ module.exports = class Footer extends Component {
 
         <div class="Text Text--adaptive">
           <p>
-            Svartmangatan 16 <br> 111 29 Stockholm, Sweden
+            Mailbox 666 <br> 114 11 Stockholm, Sweden
             <div class="u-spaceT4"><a href="tel:+46735819750">+46 735 819 750</a></div>
             <a href="mailto:hi@codeandconspire.com">hi@codeandconspire.com</a>
             <br>
