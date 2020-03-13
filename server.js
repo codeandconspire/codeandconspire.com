@@ -1,4 +1,4 @@
-if (!process.env.NOW) require('dotenv/config')
+if (!process.env.HEROKU) require('dotenv/config')
 
 var jalla = require('jalla')
 var body = require('koa-body')
@@ -14,11 +14,11 @@ var REPOSITORY = 'https://codeandconspire.cdn.prismic.io/api/v2'
 
 var app = jalla('index.js', {
   sw: 'sw.js',
-  serve: Boolean(process.env.NOW)
+  serve: Boolean(process.env.HEROKU)
 })
 
 app.use(get('/robots.txt', function (ctx, next) {
-  if (ctx.host === process.env.npm_package_now_alias) return next()
+  if (ctx.host === process.env.HOST) return next()
   ctx.type = 'text/plain'
   ctx.body = dedent`
     User-agent: *
@@ -38,7 +38,7 @@ app.use(get('/media/:type/:transform/:uri(.+)', async function (ctx, type, trans
 
 app.use(post('/prismic-hook', compose([body(), async function (ctx) {
   var secret = ctx.request.body && ctx.request.body.secret
-  ctx.assert(secret === process.env.PRISMIC_CODEANDCONSPIRE_SECRET, 403, 'Secret mismatch')
+  ctx.assert(secret === process.env.PRISMIC_SECRET, 403, 'Secret mismatch')
   return new Promise(function (resolve, reject) {
     purge(function (err, response) {
       if (err) return reject(err)
@@ -89,7 +89,7 @@ app.use(function (ctx, next) {
   return next()
 })
 
-if (process.env.NOW && process.env.NODE_ENV === 'production') {
+if (process.env.HEROKU && process.env.NODE_ENV === 'production') {
   purge(['/sw.js'], function (err) {
     if (err) throw err
     start()

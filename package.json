@@ -6,8 +6,7 @@
   "scripts": {
     "test": "standard && dependency-check package.json",
     "start": "node server.js",
-    "build": "jalla build index.js --sw sw.js",
-    "deploy": "npx now --scope codeandconspire && npx now alias --scope codeandconspire"
+    "build": "jalla build index.js --sw sw.js"
   },
   "documentify": {
     "transform": [
@@ -18,19 +17,6 @@
         }
       ]
     ]
-  },
-  "now": {
-    "alias": "www.codeandconspire.com",
-    "env": {
-      "NODE_ENV": "production",
-      "CLOUDINARY_KEY": "@cloudinary-key",
-      "CLOUDINARY_SECRET": "@cloudinary-secret",
-      "PRISMIC_CODEANDCONSPIRE_SECRET": "@prismic-codeandconspire-secret",
-      "CLOUDFLARE_CODEANDCONSPIRE_ZONE": "@cloudflare-codeandconspire-zone",
-      "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
-      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key",
-      "POLYFILL_FEATURES": "default-3.3,Array.prototype.find,Array.prototype.findIndex,Array.prototype.includes"
-    }
   },
   "repository": {
     "type": "git",
